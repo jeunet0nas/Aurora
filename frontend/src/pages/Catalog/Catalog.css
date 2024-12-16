@@ -1,0 +1,11 @@
+.catalog-container {
+  width: 80% !important;
+  min-height: 800px;
+  margin: 0 auto;
+}
+
+.filter-bar {
+  background-color: #f8f9fa; /* Màu nền nhạt */
+  padding: 20px;
+  border-radius: 5px;
+}
