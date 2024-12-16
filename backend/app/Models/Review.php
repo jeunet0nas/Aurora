@@ -9,6 +9,9 @@ use Illuminate\Database\Eloquent\Model;
 class Review extends Model
 {
     use HasFactory;
+
+    protected $primaryKey = 'rating_id'; // Đặt rating_id làm khóa chính
+
     protected $fillable = [
         'title',
         'detail',
@@ -19,14 +22,14 @@ class Review extends Model
     ];
 
     public function customer(){
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'customer_id');
     }
 
     public function book(){
-        return $this->belongsTo(Book::class);
+        return $this->belongsTo(Book::class, 'book_id');
     }
 
-    public function gerCreatedAttribute($value){
+    public function getCreatedAttribute($value){
         return Carbon::parse($value)->diffForHumans();
     }
 }

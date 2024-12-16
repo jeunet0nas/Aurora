@@ -35,8 +35,8 @@ class Book extends Model
     }
 
     public function reviews(){
-        return $this->hasMany(Review::class)->with('customer')->where('approved',1)->latest();
-    }
+    return $this->hasMany(Review::class, 'book_id', 'book_id')->with('customer')->where('approved', 1)->latest();
+}
 
     public function getRouteKeyName(){
         return 'slug';
