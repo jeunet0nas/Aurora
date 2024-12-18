@@ -1,0 +1,107 @@
+.cart-item {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.cart-item-details {
+  display: flex;
+  align-items: center;
+  width: 85%;
+}
+
+.cart-item-image {
+  width: 4rem;
+  object-fit: cover;
+  margin-right: 1rem;
+}
+
+.book-item-title {
+  font-weight: 600;
+  color: black;
+  text-decoration: none;
+}
+
+.cart-item-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 15%;
+}
+
+.cart-item-quantity {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20%;
+}
+
+.quantity {
+  margin: 0 1rem;
+  font-size: 1.2rem;
+}
+
+.cart-item-divider {
+  margin: 0 auto;
+  width: 97.5%;
+  padding-bottom: 2rem;
+  border-top: 0.125rem solid #942446;
+}
+
+.btn-delete-cart-item {
+  background: #942446 !important;
+  border-radius: 0rem !important;
+  border: none !important;
+}
+
+.cart-item-quantity .btn {
+  border: none !important; /* Loại bỏ border của button */
+  box-shadow: none !important; /* Loại bỏ shadow của button */
+  margin-left: -0.5rem;
+  margin-right: -0.5rem;
+}
+
+.icon-trash {
+  color: white !important;
+}
+
+@media (max-width: 768px) {
+  .cart-item-details {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 50%;
+  }
+
+  .cart-item-image {
+    width: 3rem; /* Adjust image size for smaller screens */
+    height: 4rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .cart-item-actions {
+    flex-direction: column;
+    width: 10%;
+  }
+
+  .cart-item-quantity {
+    margin-top: -4rem;
+    margin-bottom: 1rem;
+  }
+
+  .btn-delete-cart-item {
+    font-size: 0.5rem; /* Adjust font size for smaller screens */
+    padding: 0.5rem 0.5rem; /* Adjust padding for smaller screens */
+  }
+
+  .icon-trash {
+    font-size: 1rem; /* Adjust icon size for smaller screens */
+  }
+
+  h5 {
+    overflow: hidden; /* Ẩn phần tràn nếu tiêu đề quá dài */
+    text-overflow: ellipsis; /* Thêm dấu ba chấm nếu tiêu đề quá dài */
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Số dòng tối đa */
+    -webkit-box-orient: vertical;
+    white-space: normal;
+  }
+}

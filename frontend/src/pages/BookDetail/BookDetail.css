@@ -1,0 +1,111 @@
+.related-products {
+  width: 80%;
+  margin: 0 auto; /* Center the div */
+  padding: 2rem; /* Optional: Add some padding */
+}
+
+.product-page {
+  padding: 2rem;
+}
+
+.product-reviews {
+  width: 80%;
+  margin: 0 auto; /* Căn giữa div */
+  margin-top: 8rem;
+}
+
+.related-products {
+  margin-top: 2rem;
+}
+
+.book-list-container {
+  width: 100% !important; /* Đảm bảo container chiếm toàn bộ chiều rộng */
+  display: block !important; /* Ghi đè display: flex */
+}
+
+.book-list-row {
+  display: flex !important;
+  flex-wrap: wrap !important;
+}
+
+.book-list-col {
+  flex: 0 0 25% !important; /* 4 columns on large screens */
+  max-width: 25% !important;
+}
+
+@media (max-width: 768px) {
+  .product-page {
+    padding: 1rem;
+  }
+
+  .product-reviews,
+  .related-products {
+    padding: 1rem;
+  }
+
+  .book-list-col {
+    flex: 0 0 50% !important; /* 2 columns on small screens */
+    max-width: 50% !important;
+  }
+}
+
+@media (max-width: 1199.98px) {
+  .book-list-col {
+    flex: 0 0 50% !important;
+    max-width: 50% !important;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .book-list-col {
+    flex: 0 0 100% !important;
+    max-width: 50% !important;
+  }
+
+  .book-card-img {
+    width: 100%;
+    height: 15rem;
+    object-fit: cover;
+    object-position: top;
+  }
+
+  .book-card-img-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 15rem;
+    overflow: hidden;
+  }
+}
+
+@media (max-width: 450px) {
+  .book-list-col {
+    flex: 0 0 100% !important;
+    max-width: 50% !important;
+  }
+
+  .book-card-img {
+    width: 100%;
+    height: 13rem;
+  }
+
+  .book-card-img-container {
+    height: 13rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .book-list-col {
+    flex: 0 0 100% !important;
+    max-width: 50% !important;
+  }
+
+  .book-card-img {
+    width: 100%;
+    height: 10rem;
+  }
+
+  .book-card-img-container {
+    height: 10rem;
+  }
+}

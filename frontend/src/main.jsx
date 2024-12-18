@@ -5,12 +5,18 @@ import AppRouter from "./router/router";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
-// import "react-image-gallery/styles/css/image-gallery.css";
+import { persistor, store } from "./redux/store/index";
+import { Provider } from "react-redux";
+import { PersistGate } from "redux-persist/integration/react";
 import "./index.css";
 
 createRoot(document.getElementById("root")).render(
-  <StrictMode>
-    <AppRouter />
-    <ToastContainer position="top-right" />
-  </StrictMode>
+  <Provider store={store}>
+    <PersistGate persistor={persistor}>
+      <StrictMode>
+        <AppRouter />
+        <ToastContainer position="top-right" />
+      </StrictMode>
+    </PersistGate>
+  </Provider>
 );

@@ -71,3 +71,12 @@
   font-weight: bold;
   margin-bottom: 0rem;
 }
+
+@media (max-width: 580px) {
+  .book-card-img {
+    object-fit: cover;
+    object-position: center;
+    cursor: pointer;
+    height: 450px !important;
+  }
+}
