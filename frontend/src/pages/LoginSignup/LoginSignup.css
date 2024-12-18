@@ -1,0 +1,185 @@
+.login-signup-container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.login-signup-row {
+  height: 100%;
+  width: 100%;
+}
+
+.login-signup-image-col {
+  padding-left: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-signup-image {
+  height: 94%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 0.625rem;
+}
+
+.login-signup-form-col {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+}
+
+.login-signup-form {
+  width: 100%;
+  max-width: 28.125rem; /* 450px */
+  height: 94%;
+  padding: 1.25rem; /* 20px */
+  background-color: #ead6c2;
+  border-radius: 0.625rem; /* 10px */
+  box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.1); /* 10px */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-signup-logo {
+  text-align: center;
+  margin-bottom: 2rem; /* 20px */
+  margin-top: 2rem;
+}
+
+.login-signup-logo-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-signup-logo-image {
+  width: 10rem; /* 160px */
+  height: auto;
+}
+
+.login-signup-header {
+  color: #942446;
+  text-align: center;
+  margin-bottom: 1.25rem; /* 20px */
+}
+
+.login-signup-title {
+  font-size: 1.5rem; /* 24px */
+  font-weight: bold;
+}
+
+.login-signup-subtitle {
+  font-size: 1rem; /* 16px */
+  color: #1d2125;
+}
+
+.login-signup-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem; /* 20px */
+}
+
+.login-signup-divider-line {
+  flex: 1;
+  height: 0.125rem; /* 1px */
+  background-color: #942446;
+  margin: 1rem 4rem;
+}
+
+.login-signup-form-inner {
+  width: 100%;
+}
+
+.login-signup-input-group {
+  margin-bottom: 0.9375rem; /* 15px */
+  display: flex;
+}
+
+.login-signup-input {
+  width: 90%;
+  height: 3.5rem;
+  padding: 0.625rem; /* 10px */
+  border: 0.0625rem solid #ced4da; /* 1px */
+  border-radius: 0.3125rem; /* 5px */
+  font-size: 0.8rem;
+  margin: auto;
+  outline: none;
+}
+
+.login-signup-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.625rem; /* 10px */
+  background-color: #007bff;
+  border: none;
+  border-radius: 0.3125rem; /* 5px */
+  color: #fff;
+  cursor: pointer;
+}
+
+.login-signup-submit-group {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.login-signup-submit {
+  width: 35%;
+  height: 3rem;
+  background-color: #942446 !important;
+  color: white !important;
+  border: 0.125rem solid #942446 !important; /* Sử dụng rem thay cho px */
+  border-radius: 0 !important;
+
+  font-weight: 600; /* Chỉnh font kiểu semi-bold */
+  padding: 0.3125rem 1.875rem; /* Sử dụng rem thay cho px */
+  font-size: 0.9375rem; /* Sử dụng rem thay cho px */
+}
+
+.login-signup-toggle {
+  width: 35%;
+  background-color: white !important;
+  color: #942446 !important;
+  border: 0.125rem solid #942446 !important; /* Sử dụng rem thay cho px */
+  border-radius: 0 !important;
+
+  font-weight: 600; /* Chỉnh font kiểu semi-bold */
+  padding: 0.3125rem 1.875rem; /* Sử dụng rem thay cho px */
+  font-size: 0.9375rem; /* Sử dụng rem thay cho px */
+}
+
+.login-signup-enable {
+  width: 35%;
+  height: 3rem;
+  background-color: #942446 !important;
+  color: white !important;
+  border: 0.125rem solid #942446 !important; /* Sử dụng rem thay cho px */
+  border-radius: 0 !important;
+
+  font-weight: 600; /* Chỉnh font kiểu semi-bold */
+  padding: 0.3125rem 1.875rem; /* Sử dụng rem thay cho px */
+  font-size: 0.9375rem; /* Sử dụng rem thay cho px */
+}
+
+.login-signup-disable {
+  width: 35%;
+  background-color: white !important;
+  color: #942446 !important;
+  border: 0.125rem solid #942446 !important; /* Sử dụng rem thay cho px */
+  border-radius: 0 !important;
+
+  font-weight: 600; /* Chỉnh font kiểu semi-bold */
+  padding: 0.3125rem 1.875rem; /* Sử dụng rem thay cho px */
+  font-size: 0.9rem; /* Sử dụng rem thay cho px */
+}

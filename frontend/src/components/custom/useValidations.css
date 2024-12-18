@@ -1,0 +1,7 @@
+.text-validation {  
+  color: red; /* Màu chữ cho thông báo lỗi */
+  margin-top: -0.75rem;
+  margin-bottom: 0.5rem;
+  margin-left: 1.5rem;
+  font-size: 0.875rem; /* Kích thước chữ cho thông báo lỗi */
+}
