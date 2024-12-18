@@ -1,0 +1,159 @@
+.product-info-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+/* ========================================================================= */
+/* product-info SECTION */
+/* ========================================================================= */
+
+.product-info {
+  width: 85%;
+  display: flex;
+  gap: 1rem;
+}
+
+.product-image {
+  flex: 1 1 25%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+}
+
+.custom-image {
+  width: 95%;
+  height: auto;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.book-image {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+}
+
+.book-image img {
+  object-position: top;
+}
+
+.product-details {
+  flex: 1 1 40%;
+}
+
+.book-description {
+  padding-top: 0.3rem;
+  flex: 1 1 35%;
+}
+
+/* ========================================================================= */
+/* book-action SECTION */
+/* ========================================================================= */
+.book-action .btn {
+  font-weight: 600; /* Chỉnh font kiểu semi-bold */
+  padding: 0.3125rem 1.875rem; /* Sử dụng rem thay cho px */
+  font-size: 0.9375rem; /* Sử dụng rem thay cho px */
+}
+
+#btn-addToCart {
+  background-color: white !important;
+  color: #942446 !important;
+  border: 0.125rem solid #942446 !important; /* Sử dụng rem thay cho px */
+  border-radius: 0 !important;
+}
+
+#btn-buy {
+  background-color: #942446 !important;
+  color: white !important;
+  border: 0.125rem solid #942446 !important; /* Sử dụng rem thay cho px */
+  border-radius: 0 !important;
+}
+
+.book-action #btn-buy:hover {
+  background-color: #ca3030 !important;
+  color: white !important;
+  border: 0.125rem solid #da3636 !important; /* Sử dụng rem thay cho px */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Thêm bóng đổ khi hover */
+}
+
+.book-action #btn-addToCart:hover {
+  background-color: #942446 !important;
+  color: white !important;
+}
+
+/* ========================================================================= */
+/* product-details SECTION */
+/* ========================================================================= */
+.book-info .info-item strong {
+  margin-right: 0.5rem;
+}
+
+.book-info {
+  margin-bottom: 1.5rem;
+}
+
+.info-item {
+  margin-bottom: 0.5rem;
+}
+
+#book-price {
+  font-weight: 500;
+  font-size: 2rem;
+}
+
+.icon {
+  width: 1rem; /* Điều chỉnh kích thước biểu tượng */
+  height: auto; /* Giữ nguyên tỷ lệ biểu tượng */
+  vertical-align: middle; /* Căn giữa biểu tượng với văn bản */
+  margin-top: 0.25rem;
+  margin-bottom: 0.5rem;
+  margin-right: 0.25rem;
+}
+
+.rating-comment {
+  margin-right: 1rem;
+}
+
+.rating-info {
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+  margin-bottom: 0.7rem;
+}
+
+.book-introduction h3 {
+  margin-bottom: 0rem;
+}
+
+/* ========================================================================= */
+/* RESPONSIVE FOR MOBILE */
+/* ========================================================================= */
+@media (max-width: 768px) {
+  .product-info {
+    flex-direction: column; /* Chuyển sang bố cục cột trên màn hình nhỏ hơn */
+  }
+
+  .book-description {
+    order: 3; /* Đảm bảo book-description xuống dòng toàn nội dung */
+    width: 100%; /* Chiếm toàn bộ chiều rộng */
+    margin-top: 1rem; /* Thêm khoảng cách trên */
+  }
+
+  .product-details {
+    width: 100%; /* Chiếm toàn bộ chiều rộng */
+    margin-bottom: 1rem; /* Thêm khoảng cách dưới */
+  }
+
+  .product-image {
+    width: 40%; /* Chiếm 40% chiều rộng */
+    margin: 0 auto; /* Căn giữa hình ảnh */
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+  }
+}

@@ -7,7 +7,7 @@ import "./BookListItem.css";
 export default function BookListItem({ book }) {
   return (
     <Col key={book.id} xs={12} sm={6} md={6} lg={4} className="mb-2">
-      <Link className="text-decoration-none text-dark" to="/detail">
+      <Link className="text-decoration-none text-dark" to={`book/${book.slug}`}>
         <Card key={book.book_id} className="book-card">
           <div className="card-image">
             <Card.Img

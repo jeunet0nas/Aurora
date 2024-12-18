@@ -18,6 +18,9 @@ class BookController extends Controller
 
     // Lấy thông tin sách theo slug
     public function show(Book $book){
+        if(!$book){
+            abort(404);
+        }
         return BookResource::make(
             $book->load(['author','reviews'])
         );
