@@ -55,9 +55,9 @@ export default function Cart() {
                 <Link to="/" className="btn btn-primary btn-home">
                   Continue Shopping
                 </Link>
-                <Button variant="success" className="btn-checkout">
+                <Link to="/checkout" className="btn btn-checkout">
                   Checkout
-                </Button>
+                </Link>
               </div>
             </Card.Body>
           </Card>

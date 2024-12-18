@@ -61,7 +61,7 @@
 .btn-checkout {
   width: 15%;
   background: #942466 !important;
-  color: white;
+  color: white !important;
   border-radius: 0rem !important;
   border: none !important;
 }
