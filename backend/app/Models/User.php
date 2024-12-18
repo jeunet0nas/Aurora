@@ -13,6 +13,9 @@ class User extends Authenticatable
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable, HasApiTokens;
 
+    protected $primaryKey = 'customer_id';
+    protected $table = 'customers';
+
     /**
      * The attributes that are mass assignable.
      *
@@ -55,7 +58,7 @@ class User extends Authenticatable
 
 
     public function orders(){
-        return $this->hasMany(Order::class)->with('books')->latest();
+        return $this->hasMany(Order::class, 'customer_id', 'customer_id')->with('books')->latest();
     }
 
     public function image_path(){
