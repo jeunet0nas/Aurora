@@ -4,6 +4,8 @@ import AuthLayout from "../layouts/AuthLayout";
 import Home from "../pages/HomePage/Home";
 import LoginSignup from "../pages/LoginSignup/LoginSignup";
 import Catalog from "../pages/Catalog/Catalog";
+import BookDetail from "../pages/BookDetail/BookDetail";
+import Cart from "../pages/Cart/Cart";
 
 const AppRouter = () => {
   return (
@@ -22,6 +24,22 @@ const AppRouter = () => {
           element={
             <MainLayout>
               <Catalog />
+            </MainLayout>
+          }
+        />
+        <Route
+          path="catalog/book/:slug"
+          element={
+            <MainLayout>
+              <BookDetail />
+            </MainLayout>
+          }
+        />
+        <Route
+          path="/cart"
+          element={
+            <MainLayout>
+              <Cart />
             </MainLayout>
           }
         />

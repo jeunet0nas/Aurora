@@ -1,0 +1,114 @@
+.shopping-cart-page {
+  width: 90%;
+  padding: 2rem;
+  min-height: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.heading-cart-title {
+  color: #942466;
+  font-weight: 600;
+  margin-bottom: 2rem;
+}
+
+.cart-icon {
+  margin-right: 1rem;
+  margin-top: -0.2rem;
+}
+
+.cart-items-list {
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.shopping-cart-summary-section {
+  width: 95%;
+  margin-top: -3rem;
+}
+
+.summary-card {
+  width: 100%;
+  border-radius: 0rem !important;
+  border: none !important;
+}
+
+.shopping-cart-button-group {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.empty-cart {
+  width: 90%;
+  height: 31.25rem;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.empty-cart h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.empty-cart p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.btn-checkout {
+  width: 15%;
+  background: #942466 !important;
+  color: white;
+  border-radius: 0rem !important;
+  border: none !important;
+}
+
+.btn-home {
+  width: 30%;
+  text-align: center;
+  color: #942466 !important;
+  background: white !important;
+  border-radius: 0rem !important;
+  border: none !important;
+}
+
+.list-group {
+  border: none;
+}
+
+.list-group-item {
+  border: none;
+}
+
+.total-price-item {
+  text-align: right;
+}
+
+.total-price {
+  font-size: 1.2rem; /* Cỡ chữ mặc định */
+}
+
+@media (max-width: 768px) {
+  .total-price {
+    font-size: 1rem;
+  }
+
+  .shopping-cart-button-group {
+    margin-top: 0rem;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .total-price-item {
+    text-align: center;
+  }
+
+  .btn-checkout,
+  .btn-home {
+    width: 80%;
+    margin-top: 0.5rem;
+  }
+}
