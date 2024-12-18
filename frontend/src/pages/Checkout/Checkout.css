@@ -1,0 +1,77 @@
+.checkout-card {
+  width: 90%; /* Chiếm 90% chiều rộng màn hình */
+  min-height: 680px;
+  margin: 0 auto; /* Nằm ở giữa */
+  border: none !important;
+}
+
+.checkout-row {
+  /* Các thuộc tính CSS cho hàng Row */
+}
+
+.checkout-sumary {
+  background: rgb(234, 231, 231);
+}
+
+.checkout-summary-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.checkout-summary-title {
+  /* Các thuộc tính CSS cho tiêu đề Order Summary */
+}
+
+.checkout-edit {
+  display: flex;
+  align-items: center;
+  color: #994499;
+  text-decoration: none;
+  margin-right: 0.8rem;
+}
+
+.checkout-edit:hover {
+  text-decoration: underline;
+}
+
+.checkout-table {
+  border: none;
+}
+
+.checkout-table th,
+.checkout-table td {
+  border: none; /* Bỏ viền của các ô trong bảng */
+  background: rgb(234, 231, 231) !important;
+}
+
+.checkout-table th.text-start,
+.checkout-table td.text-start {
+  text-align: left;
+}
+
+.checkout-table th.text-center,
+.checkout-table td.text-center {
+  text-align: center;
+}
+
+.checkout-table th.text-end,
+.checkout-table td.text-end {
+  text-align: right;
+}
+
+.checkout-total-label {
+  /* Các thuộc tính CSS cho nhãn Total */
+}
+
+.checkout-total-value {
+  /* Các thuộc tính CSS cho giá trị Total */
+}
+
+.checkout-coupon-label {
+  /* Các thuộc tính CSS cho nhãn Coupon */
+}
+
+.checkout-coupon-value {
+  /* Các thuộc tính CSS cho giá trị Coupon */
+}
