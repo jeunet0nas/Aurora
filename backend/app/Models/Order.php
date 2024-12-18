@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Order extends Model
 {
     use HasFactory;
-
+    protected $primaryKey = 'order_id';
     protected $fillable = [
         'total_price',
         'order_address',
@@ -25,7 +25,7 @@ class Order extends Model
     }
 
     public function customer() {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'customer_id', 'customer_id');
     }
 
     public function books(){
