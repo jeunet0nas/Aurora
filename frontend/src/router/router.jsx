@@ -6,6 +6,7 @@ import LoginSignup from "../pages/LoginSignup/LoginSignup";
 import Catalog from "../pages/Catalog/Catalog";
 import BookDetail from "../pages/BookDetail/BookDetail";
 import Cart from "../pages/Cart/Cart";
+import Checkout from "../pages/Checkout/Checkout";
 
 const AppRouter = () => {
   return (
@@ -40,6 +41,14 @@ const AppRouter = () => {
           element={
             <MainLayout>
               <Cart />
+            </MainLayout>
+          }
+        />
+        <Route
+          path="/checkout"
+          element={
+            <MainLayout>
+              <Checkout />
             </MainLayout>
           }
         />
