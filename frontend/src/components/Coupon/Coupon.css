@@ -1,0 +1,29 @@
+.coupon-row {
+  justify-content: center;
+  text-align: center;
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+
+.coupon-form {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  background: rgb(234, 231, 231) !important;
+}
+
+.coupon-input {
+  background: rgb(234, 231, 231) !important;
+  border: none !important;
+  color: black !important;
+}
+
+.coupon-input:focus {
+  outline: none !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+.coupon-button {
+  background: rgb(251, 90, 22) !important;
+  border: none !important;
+}

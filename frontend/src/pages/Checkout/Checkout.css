@@ -20,7 +20,9 @@
 }
 
 .checkout-summary-title {
-  /* Các thuộc tính CSS cho tiêu đề Order Summary */
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  margin-top: 1.5rem;
 }
 
 .checkout-edit {
@@ -41,7 +43,7 @@
 
 .checkout-table th,
 .checkout-table td {
-  border: none; /* Bỏ viền của các ô trong bảng */
+  border: none;
   background: rgb(234, 231, 231) !important;
 }
 
@@ -60,18 +62,15 @@
   text-align: right;
 }
 
-.checkout-total-label {
-  /* Các thuộc tính CSS cho nhãn Total */
-}
-
+.checkout-total-label,
 .checkout-total-value {
-  /* Các thuộc tính CSS cho giá trị Total */
+  font-size: 1.4rem;
 }
 
 .checkout-coupon-label {
-  /* Các thuộc tính CSS cho nhãn Coupon */
+  font-size: 1.2rem;
 }
 
 .checkout-coupon-value {
-  /* Các thuộc tính CSS cho giá trị Coupon */
+  color: green !important;
 }

@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AuthorController;
 use App\Http\Controllers\Admin\BookController;
+use App\Http\Controllers\Admin\CouponController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/',[AdminController::class,'login'])->name('admin.login');
@@ -36,6 +37,18 @@ Route::middleware('admin')->group(function(){
                 'edit' => 'admin.books.edit',
                 'update' => 'admin.books.update',
                 'destroy' => 'admin.books.destroy',
+            ]
+        ]);
+
+    //Routes mã giảm giá
+    Route::resource('coupons', CouponController::class, [
+            'names' => [
+                'index' => 'admin.coupons.index',
+                'create' => 'admin.coupons.create',
+                'store' => 'admin.coupons.store',
+                'edit' => 'admin.coupons.edit',
+                'update' => 'admin.coupons.update',
+                'destroy' => 'admin.coupons.destroy',
             ]
         ]);
 });

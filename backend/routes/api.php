@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\BookController;
+use App\Http\Controllers\Api\CouponController;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Resources\UserResource;
 use Illuminate\Http\Request;
@@ -15,6 +16,9 @@ Route::middleware('auth:sanctum')->group(function(){
     });
     Route::post('user/logout', [UserController::class,'logout']);
     Route::put('user/profile/update', [UserController::class, 'UpdateUserProfile']);
+
+    // Coupon route
+    Route::post('apply/coupon', [CouponController::class, 'applyCoupon']);
 });
 
 
