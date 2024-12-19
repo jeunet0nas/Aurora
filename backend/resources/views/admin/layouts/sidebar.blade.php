@@ -33,8 +33,8 @@
                     </a>
                 </li>
                 <li class="nav-item mt-2 mb-2">
-                    <a style="color: #942446; font-size: 1.25rem"  class="nav-link d-flex align-items-center gap-2" aria-current="page" href="#">
-                        <i class="fas fa-dashboard"></i>
+                    <a style="color: #942446; font-size: 1.25rem"  class="nav-link d-flex align-items-center gap-2" aria-current="page" href="{{route('admin.coupons.index')}}">
+                        <i class="fas fa-ticket"></i>
                         Coupons
                     </a>
                 </li>

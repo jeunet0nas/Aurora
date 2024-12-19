@@ -10,11 +10,12 @@ use Illuminate\Support\Str;
 class Coupon extends Model
 {
     use HasFactory;
-
+    protected $primaryKey = 'coupon_id';
     protected $fillable = ['coupon_name', 'discount', 'valid_until'];
 
     // Uppercase mã khuyến mãi
-    public function setNameAttribute($value){
+    public function setCouponNameAttribute($value)
+    {
         $this->attributes['coupon_name'] = Str::upper($value);
     }
 

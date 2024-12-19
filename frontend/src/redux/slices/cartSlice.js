@@ -63,12 +63,32 @@ export const cartSlice = createSlice({
       );
       toast.warning("Sản phẩm đã được xóa khỏi giỏ hàng");
     },
+    setValidCoupon(state, action) {
+      state.validCoupon = action.payload;
+    },
+    addCouponIdToCartItem(state, action) {
+      const coupon_id = action.payload;
+      state.cartItems = state.cartItems.map((item) => {
+        return { ...item, coupon_id };
+      });
+    },
+    clearCartItems(state, action) {
+      state.cartItems = [];
+    },
   },
 });
 
 const cartReducer = cartSlice.reducer;
 
-export const { addToCart, clearCart, incrementQ, decrementQ, removeFromCart } =
-  cartSlice.actions;
+export const {
+  addToCart,
+  clearCart,
+  incrementQ,
+  decrementQ,
+  removeFromCart,
+  setValidCoupon,
+  addCouponIdToCartItem,
+  clearCartItems,
+} = cartSlice.actions;
 
 export default cartReducer;
