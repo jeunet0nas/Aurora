@@ -17,11 +17,10 @@ Route::middleware('auth:sanctum')->group(function(){
     Route::post('user/logout', [UserController::class,'logout']);
     Route::put('user/profile/update', [UserController::class, 'UpdateUserProfile']);
 
-    // Coupon route
-    Route::post('apply/coupon', [CouponController::class, 'applyCoupon']);
 });
 
-
+// Coupon route
+Route::post('apply/coupon', [CouponController::class, 'applyCoupon']);
 
 // books api routes
 Route::get('books', [BookController::class,'index']);
