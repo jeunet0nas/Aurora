@@ -2,7 +2,8 @@ import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Navbar, Nav, Container, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { FaShoppingBag, FaBookmark, FaSearch } from "react-icons/fa";
+import { FaShoppingBag, FaBookmark, FaSearch, FaUser } from "react-icons/fa";
+import { RiLogoutBoxRFill } from "react-icons/ri";
 import "./Header.css";
 import logo from "../assets/common/aurora_red.svg";
 import { useSelector } from "react-redux";
@@ -12,6 +13,7 @@ import {
   setLoggedInOut,
   setToken,
 } from "../redux/slices/userSlice";
+import { toast } from "react-toastify";
 
 export default function Header() {
   const { isLoggedIn, token, user } = useSelector((state) => state.user);
@@ -44,6 +46,7 @@ export default function Header() {
       dispatch(setCurrentUser(null));
       dispatch(setToken(""));
       dispatch(setLoggedInOut(false));
+      toast.success(response.data.message);
     } catch (error) {
       console.log(error);
     }
@@ -69,23 +72,21 @@ export default function Header() {
             </Nav.Link>
           </Nav>
           <div className="header__icons d-flex align-items-center gap-3">
-            <FaSearch className="header__icon" />
-            <FaBookmark className="header__icon" />
-            <Link to="/cart">
-              <FaShoppingBag className="header__icon" /> {cartItems.length}
+            <Link to="/cart" className="header__icon">
+              <FaShoppingBag /> ( {cartItems.length} )
             </Link>
 
             {isLoggedIn ? (
               <>
-                <Link to="/profile" className="">
-                  {user.customer_name}
+                <Link to="/profile" className="header__icon">
+                  <FaUser /> {user?.customer_name}
                 </Link>
                 <Link
                   to="#"
-                  className="header__login"
+                  className="header__icon"
                   onClick={() => logoutUser()}
                 >
-                  Logout
+                  <RiLogoutBoxRFill /> Logout
                 </Link>
               </>
             ) : (
