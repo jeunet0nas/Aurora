@@ -99,7 +99,12 @@ export default function ProfileSidebar() {
           <FaIdCardAlt className="profile-user-icon" /> {user?.customer_name}
         </ListGroup.Item>
         <ListGroup.Item className="profile-sidebar-list-item">
-          <FaUserLock className="profile-user-icon" /> {user?.email}
+          <Link
+            to="/change-password"
+            className="profile-sidebar-link text-decoration-none text-dark"
+          >
+            <FaUserLock className="profile-user-icon" /> Đổi mật khẩu
+          </Link>
         </ListGroup.Item>
         <ListGroup.Item className="profile-sidebar-list-item">
           <Link
