@@ -1,0 +1,15 @@
+.user-profile {
+  width: 90%;
+  max-width: 1200px; /* Đặt giới hạn chiều rộng tối đa nếu cần */
+  margin: 0 auto; /* Căn giữa */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.user-profile-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}

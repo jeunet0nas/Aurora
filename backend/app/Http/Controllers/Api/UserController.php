@@ -51,10 +51,8 @@ class UserController extends Controller
     // Cập nhật thông tin khác hàng
     public function UpdateUserProfile(Request $request){
         $request->validate([
-            'profile_img' => 'img|mimes:png,jpg,jpeg|max:2048'
+            'profile_img' => 'image|mimes:png,jpg,jpeg|max:2048'
         ]);
-
-
 
         if($request->has('profile_img')){
             if(File::exists(asset($request->user()->profile_img))){
@@ -73,6 +71,7 @@ class UserController extends Controller
             ]);
         }else {
             $request->user()->update([
+                'email'=> $request->email,
                 'city' => $request->city,
                 'province' => $request->province,
                 'address' => $request->address,
@@ -81,7 +80,7 @@ class UserController extends Controller
             ]);
 
             return response()->json([
-                'message' => 'Hồ sơ đã được cập nhật!',
+                'message' => 'Thông tin cá nhân đã được cập nhật!',
                 'user' => UserResource::make($request->user())
             ]);
         }

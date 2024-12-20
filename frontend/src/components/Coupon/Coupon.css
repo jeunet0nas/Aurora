@@ -8,11 +8,11 @@
 .coupon-form {
   margin-top: 1rem;
   margin-bottom: 1rem;
-  background: rgb(234, 231, 231) !important;
+  background: #eeeeee !important;
 }
 
 .coupon-input {
-  background: rgb(234, 231, 231) !important;
+  background: #eeeeee !important;
   border: none !important;
   color: black !important;
 }

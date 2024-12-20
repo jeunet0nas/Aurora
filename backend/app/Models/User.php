@@ -62,8 +62,8 @@ class User extends Authenticatable
     }
 
     public function image_path(){
-        if($this->profile_image){
-            return asset('storage/images/users'.$this->profile_image);
+        if($this->profile_img){
+            return asset($this->profile_img);
         }else {
             return 'https://cdn.pixabay.com/photo/2012/04/26/19/43/profile-42914_640.png';
         }

@@ -1,0 +1,50 @@
+.update-user-infos {
+}
+
+.update-user-infos-card {
+  background: #eeeeee !important;
+}
+
+.update-user-infos-header {
+  background: #eeeeee !important;
+}
+
+.update-user-infos-body {
+}
+
+.user-infos-label {
+  margin-left: 2rem;
+}
+
+.user-infos-header {
+  font-size: 24px;
+  margin-top: 1rem;
+  background: #eeeeee !important;
+}
+
+.update-user-infos-control {
+  width: 80% !important;
+  margin-left: 2.5rem;
+  border-radius: 0rem !important;
+  border: 1px solid black !important;
+}
+
+.update-user-infos-group {
+  border-radius: 0px !important ;
+}
+
+.update-user-infos-button {
+  display: block !important;
+  margin: 0 auto !important;
+  border: 0rem !important;
+  border-radius: 0rem !important;
+  margin-top: 2rem !important;
+  margin-bottom: 2rem !important;
+  background: #942446 !important;
+}
+
+.update-user-infos-control:focus {
+  outline: none !important;
+  box-shadow: none !important;
+  border: 1px solid black;
+}
