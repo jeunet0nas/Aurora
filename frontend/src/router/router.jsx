@@ -7,6 +7,7 @@ import Catalog from "../pages/Catalog/Catalog";
 import BookDetail from "../pages/BookDetail/BookDetail";
 import Cart from "../pages/Cart/Cart";
 import Checkout from "../pages/Checkout/Checkout";
+import Profile from "../pages/UserProfile/Profile";
 
 const AppRouter = () => {
   return (
@@ -49,6 +50,14 @@ const AppRouter = () => {
           element={
             <MainLayout>
               <Checkout />
+            </MainLayout>
+          }
+        />
+        <Route
+          path="/profile"
+          element={
+            <MainLayout>
+              <Profile />
             </MainLayout>
           }
         />

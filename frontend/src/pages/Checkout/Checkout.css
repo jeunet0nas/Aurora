@@ -1,8 +1,9 @@
 .checkout-card {
   width: 90%; /* Chiếm 90% chiều rộng màn hình */
-  min-height: 680px;
+  min-height: 750px;
   margin: 0 auto; /* Nằm ở giữa */
   border: none !important;
+  margin-left: 2rem;
 }
 
 .checkout-row {
@@ -10,7 +11,7 @@
 }
 
 .checkout-sumary {
-  background: rgb(234, 231, 231);
+  background: #eeeeee !important;
 }
 
 .checkout-summary-header {
@@ -23,6 +24,7 @@
   font-size: 1.5rem;
   margin-bottom: 2rem;
   margin-top: 1.5rem;
+  margin-left: 1.5rem;
 }
 
 .checkout-edit {
@@ -30,7 +32,7 @@
   align-items: center;
   color: #994499;
   text-decoration: none;
-  margin-right: 0.8rem;
+  margin-right: 1.5rem;
 }
 
 .checkout-edit:hover {
@@ -38,13 +40,15 @@
 }
 
 .checkout-table {
+  width: 90% !important;
+  margin: 0 auto;
   border: none;
 }
 
 .checkout-table th,
 .checkout-table td {
   border: none;
-  background: rgb(234, 231, 231) !important;
+  background: #eeeeee !important;
 }
 
 .checkout-table th.text-start,
