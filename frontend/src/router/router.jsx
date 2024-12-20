@@ -8,11 +8,13 @@ import BookDetail from "../pages/BookDetail/BookDetail";
 import Cart from "../pages/Cart/Cart";
 import Checkout from "../pages/Checkout/Checkout";
 import Profile from "../pages/UserProfile/Profile";
+import ChangePassword from "../pages/ChangePassword/ChangePassword";
 
 const AppRouter = () => {
   return (
     <BrowserRouter>
       <Routes>
+        {/* Trang chủ */}
         <Route
           path="/"
           element={
@@ -21,6 +23,7 @@ const AppRouter = () => {
             </MainLayout>
           }
         />
+        {/* Catalog */}
         <Route
           path="/catalog"
           element={
@@ -29,6 +32,7 @@ const AppRouter = () => {
             </MainLayout>
           }
         />
+        {/* Chi tiết sách */}
         <Route
           path="catalog/book/:slug"
           element={
@@ -37,6 +41,7 @@ const AppRouter = () => {
             </MainLayout>
           }
         />
+        {/* Giỏ hàng */}
         <Route
           path="/cart"
           element={
@@ -45,6 +50,7 @@ const AppRouter = () => {
             </MainLayout>
           }
         />
+        {/* Thanh toán */}
         <Route
           path="/checkout"
           element={
@@ -53,6 +59,7 @@ const AppRouter = () => {
             </MainLayout>
           }
         />
+        {/* Hồ sơ cá nhân */}
         <Route
           path="/profile"
           element={
@@ -61,6 +68,16 @@ const AppRouter = () => {
             </MainLayout>
           }
         />
+        {/* Đổi mật khẩu */}
+        <Route
+          path="/change-password"
+          element={
+            <MainLayout>
+              <ChangePassword />
+            </MainLayout>
+          }
+        />
+        {/* Đăng nhập, đăng kí */}
         <Route
           path="/authenticate"
           element={
