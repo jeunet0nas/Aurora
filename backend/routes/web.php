@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AuthorController;
 use App\Http\Controllers\Admin\BookController;
 use App\Http\Controllers\Admin\CouponController;
+use App\Http\Controllers\Admin\OrderController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/',[AdminController::class,'login'])->name('admin.login');
@@ -51,4 +52,11 @@ Route::middleware('admin')->group(function(){
                 'destroy' => 'admin.coupons.destroy',
             ]
         ]);
+
+
+    // Routes đơn hàng
+    Route::get('orders', [OrderController::class, 'index'])->name('admin.orders.index');
+    Route::get('update/{order}/order', [OrderController::class, 'updateDeliveredAtDate'])->name('admin.orders.update');
+    Route::delete('delete/{order}/order', [OrderController::class, 'delete'])->name('admin.orders.delete');
+    Route::get('admin/orders/{order}', [OrderController::class, 'show'])->name('admin.orders.show');
 });

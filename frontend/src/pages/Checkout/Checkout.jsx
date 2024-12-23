@@ -9,14 +9,17 @@ import Coupon from "../../components/Coupon/Coupon";
 import Alert from "../../layouts/Alert";
 import {
   addCouponIdToCartItem,
+  clearCartItems,
   setValidCoupon,
 } from "../../redux/slices/cartSlice";
 import { FaTrashAlt } from "react-icons/fa";
 import { toast } from "react-toastify";
 import UpdateUserInfos from "../../components/UpdateUserInfos/UpdateUserInfos";
+import { axiosRequest, getConfig } from "../../helpers/config";
+import { setCurrentUser } from "../../redux/slices/userSlice";
 
 export default function Checkout() {
-  const { user, isLoggedIn } = useSelector((state) => state.user);
+  const { user, isLoggedIn, token } = useSelector((state) => state.user);
   const { cartItems, validCoupon } = useSelector((state) => state.cart);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -49,6 +52,39 @@ export default function Checkout() {
     );
     dispatch(addCouponIdToCartItem(null));
     toast.success("Đã hủy áp dụng mã giảm giá");
+  };
+
+  const handleConfirmOrder = async () => {
+    try {
+      const orderData = {
+        books: cartItems.map((item) => ({
+          book_id: item.book_id,
+          qty: item.qty,
+          price: item.price,
+          coupon_id: item.coupon_id,
+        })),
+      };
+
+      const response = await axiosRequest.post(
+        "store/order",
+        orderData,
+        getConfig(token)
+      );
+
+      dispatch(clearCartItems());
+      dispatch(
+        setValidCoupon({
+          name: "",
+          discount: 0,
+        })
+      );
+      dispatch(setCurrentUser(response.data.user));
+      toast.success("Đơn hàng đã được tạo!");
+      navigate("/user/orders");
+    } catch (error) {
+      toast.error("Có lỗi xảy ra! Tạo đơn hàng không thành công");
+      console.log(error);
+    }
   };
 
   return (
@@ -121,9 +157,12 @@ export default function Checkout() {
             </div>
             <div className="my-3">
               {user?.profile_completed ? (
-                <Link to="/" className="btn btn-primary rounded-0">
+                <button
+                  onClick={handleConfirmOrder}
+                  className="btn btn-primary rounded-0"
+                >
                   Mua hàng
-                </Link>
+                </button>
               ) : (
                 <Alert
                   content="Hãy nhập thông tin để thanh toán"

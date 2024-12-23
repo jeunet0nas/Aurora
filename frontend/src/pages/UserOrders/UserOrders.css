@@ -1,0 +1,86 @@
+.user-orders-page {
+  margin-top: 20px;
+  width: 90%;
+  min-height: 700px;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.user-orders-page h3,
+.user-orders-page h4 {
+  margin-bottom: 20px;
+}
+
+.user-orders-page .table {
+  margin-bottom: 0;
+  width: 94%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.user-orders-page .table {
+  margin-bottom: 2rem;
+  border: 2px solid black !important;
+}
+
+.user-orders-page .table th,
+.user-orders-page .table td {
+  vertical-align: middle;
+}
+
+.user-orders-page .card-body {
+  padding: 20px;
+}
+
+.user-orders-page-list {
+  border-radius: 0px !important;
+  border: none !important;
+  background-color: #f3f3f3 !important;
+}
+
+.user-orders-page-detail {
+  border-radius: 0px !important;
+  border: none !important;
+  background-color: #f3f3f3 !important;
+}
+
+.user-order-detail-info {
+    margin-left: 3rem
+}
+
+.user-orders-page .btn-primary {
+  background-color: #942446;
+  border-color: #942446;
+  border-radius: 0px;
+}
+
+.user-orders-page .btn-primary:hover {
+  background-color: #961239d7;
+  border-color: #961239d7;
+}
+
+.user-orders-page .no-orders {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.user-orders-page .no-orders h3 {
+  margin-bottom: 20px;
+}
+
+.user-orders-page .no-orders a {
+  display: inline-flex;
+  align-items: center;
+  color: #942446;
+  text-decoration: none;
+}
+
+.user-orders-page .no-orders a:hover {
+  color: #0056b3;
+}
+
+.order-detail-icon {
+  font-size: 7rem;
+  margin-bottom: 2rem;
+}

@@ -9,6 +9,7 @@ import Cart from "../pages/Cart/Cart";
 import Checkout from "../pages/Checkout/Checkout";
 import Profile from "../pages/UserProfile/Profile";
 import ChangePassword from "../pages/ChangePassword/ChangePassword";
+import UserOrders from "../pages/UserOrders/UserOrders";
 
 const AppRouter = () => {
   return (
@@ -74,6 +75,15 @@ const AppRouter = () => {
           element={
             <MainLayout>
               <ChangePassword />
+            </MainLayout>
+          }
+        />
+        {/* Thông tin đơn hàng */}
+        <Route
+          path="/user/orders"
+          element={
+            <MainLayout>
+              <UserOrders />
             </MainLayout>
           }
         />
