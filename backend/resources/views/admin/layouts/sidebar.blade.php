@@ -27,9 +27,9 @@
                     </a>
                 </li>
                 <li class="nav-item mt-2 mb-2">
-                    <a style="color: #942446; font-size: 1.25rem" class="nav-link d-flex align-items-center gap-2" aria-current="page" href="#">
-                        <i class="fas fa-dashboard"></i>
-                        Orders
+                    <a style="color: #942446; font-size: 1.25rem" class="nav-link d-flex align-items-center gap-2" aria-current="page" href="{{route('admin.orders.index')}}">
+                        <i class="fas fa-cart-shopping"></i>
+                        Hóa đơn
                     </a>
                 </li>
                 <li class="nav-item mt-2 mb-2">

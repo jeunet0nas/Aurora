@@ -119,13 +119,13 @@
         });
         function deleteItem(id) {
             Swal.fire({
-                title: 'Are you sure?',
-                text: "You won't be able to revert this!",
+                title: 'Bạn chăc chắn muốn xóa?',
+                text: "Dữ liệu sau khi xóa sẽ không thể khôi phục!",
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
-                confirmButtonText: 'Yes, delete it!'
+                confirmButtonText: 'Xóa!'
                 }).then((result) => {
                 if (result.isConfirmed) {
                     document.getElementById(id).submit();
