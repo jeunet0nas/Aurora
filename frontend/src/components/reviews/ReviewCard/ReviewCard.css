@@ -1,0 +1,38 @@
+.review-card-image {
+  margin-left: 1.5rem !important;
+}
+
+.review-card-content {
+  margin-left: 1.5rem;
+}
+
+#dropdown-basic {
+  background: #942446;
+  border: none;
+  margin-right: 1.5rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#dropdown-basic:hover {
+  background-color: #7a1e38;
+  color: #ffffff;
+}
+
+.review-title {
+  margin-top: 1rem;
+  margin-left: 0.2rem;
+  font-size: larger;
+  margin-bottom: 0rem;
+}
+
+.review-rating {
+  margin-top: 0rem !important;
+}
+
+.review-detail {
+  margin-top: 0.825rem !important;
+}
+
+.review-info {
+  margin-bottom: 1rem;
+}

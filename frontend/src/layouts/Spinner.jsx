@@ -6,7 +6,7 @@ export default function Spinner() {
     <div className="d-flex justify-content-center my-5">
       <FallingLines
         color="#942446"
-        width="200"
+        width="100"
         visible={true}
         ariaLabel="falling-circles-loading"
       />

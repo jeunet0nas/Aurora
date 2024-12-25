@@ -73,7 +73,7 @@ export default function Header() {
           </Nav>
           <div className="header__icons d-flex align-items-center gap-3">
             <Link to="/cart" className="header__icon">
-              <FaShoppingBag /> ( {cartItems.length} )
+              <FaShoppingBag /> {cartItems.length}
             </Link>
 
             {isLoggedIn ? (
