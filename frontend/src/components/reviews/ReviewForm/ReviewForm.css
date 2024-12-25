@@ -1,0 +1,75 @@
+.review-form-card {
+  border: none !important;
+  background-color: #f8f9fa !important;
+}
+
+.review-form-header {
+  border: none !important;
+  margin-bottom: -1rem;
+  margin-top: 1rem;
+  background-color: #f8f9fa !important;
+}
+
+.review-form-body {
+  width: 70%;
+  margin: 0 auto;
+  margin-bottom: 2rem;
+}
+
+.review-detail-label {
+  font-size: larger;
+}
+
+.review-detail-control {
+  border-radius: 0px !important;
+}
+
+.review-detail-control:focus {
+  outline: none !important;
+  box-shadow: none !important;
+  border: 1px solid black !important;
+}
+
+.review-form-rating {
+  display: flex;
+  justify-content: space-between;
+}
+
+.review-submit-btn {
+  background-color: #942446 !important;
+  border: none !important;
+  border-radius: 0px !important;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.review-submit-btn:hover {
+  background-color: #7a1e38 !important;
+  color: #ffffff !important;
+}
+
+.review-update-btn {
+  background-color: #942446 !important;
+  border: none !important;
+  border-radius: 0px !important;
+  margin-right: 1rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.review-update-btn:hover {
+  background-color: #7a1e38 !important;
+  color: #ffffff !important;
+}
+
+.review-delete-btn {
+  background-color: #fefefe !important;
+  color: #942446 !important;
+  border-color: #942446 !important;
+  border-radius: 0px !important;
+  margin-right: 1rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.review-delete-btn:hover {
+  background-color: #942446 !important;
+  color: #ffffff !important;
+}
