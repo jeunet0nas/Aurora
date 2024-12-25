@@ -34,7 +34,7 @@ export default function ReviewCard({ review }) {
 
   const deleteReview = async (review) => {
     if (confirm("Bạn muốn xóa bình luận ?")) {
-      setLoading(true);
+      // setLoading(true);
       try {
         const response = await axiosRequest.post(
           "review/delete",

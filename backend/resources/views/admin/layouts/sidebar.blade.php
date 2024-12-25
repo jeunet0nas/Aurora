@@ -9,46 +9,52 @@
             <hr class="my-3">
             <ul class="nav flex-column">
                 <li class="nav-item mt-2 mb-2">
-                    <a style="color: #942446; font-size: 1.25rem" class="nav-link d-flex align-items-center gap-2" aria-current="page" href="#">
+                    <a style="color: #942446; font-size: 1rem" class="nav-link d-flex align-items-center gap-2" aria-current="page" href="#">
                         <i class="fas fa-dashboard"></i>
                         Dashboard
                     </a>
                 </li>
                 <li class="nav-item mt-2 mb-2">
-                    <a style="color: #942446; font-size: 1.25rem" class="nav-link d-flex align-items-center gap-2" aria-current="page" href="{{route('admin.authors.index')}}">
+                    <a style="color: #942446; font-size: 1rem" class="nav-link d-flex align-items-center gap-2" aria-current="page" href="{{route('admin.authors.index')}}">
                         <i class="fas fa-dashboard"></i>
-                        Author
+                        Tác giả
                     </a>
                 </li>
                 <li class="nav-item mt-2 mb-2">
-                    <a style="color: #942446; font-size: 1.25rem" class="nav-link d-flex align-items-center gap-2" aria-current="page" href="{{route('admin.books.index')}}">
+                    <a style="color: #942446; font-size: 1rem" class="nav-link d-flex align-items-center gap-2" aria-current="page" href="{{route('admin.books.index')}}">
                         <i class="fas fa-dashboard"></i>
-                        Books
+                        Sách
                     </a>
                 </li>
                 <li class="nav-item mt-2 mb-2">
-                    <a style="color: #942446; font-size: 1.25rem" class="nav-link d-flex align-items-center gap-2" aria-current="page" href="{{route('admin.orders.index')}}">
+                    <a style="color: #942446; font-size: 1rem" class="nav-link d-flex align-items-center gap-2" aria-current="page" href="{{route('admin.orders.index')}}">
                         <i class="fas fa-cart-shopping"></i>
                         Hóa đơn
                     </a>
                 </li>
                 <li class="nav-item mt-2 mb-2">
-                    <a style="color: #942446; font-size: 1.25rem"  class="nav-link d-flex align-items-center gap-2" aria-current="page" href="{{route('admin.coupons.index')}}">
+                    <a style="color: #942446; font-size: 1rem"  class="nav-link d-flex align-items-center gap-2" aria-current="page" href="{{route('admin.coupons.index')}}">
                         <i class="fas fa-ticket"></i>
-                        Coupons
+                        Mã khuyến mãi
                     </a>
                 </li>
                 <li class="nav-item mt-2 mb-2">
-                    <a style="color: #942446; font-size: 1.25rem" class="nav-link d-flex align-items-center gap-2" aria-current="page" href="{{route('admin.reviews.index')}}">
+                    <a style="color: #942446; font-size: 1rem" class="nav-link d-flex align-items-center gap-2" aria-current="page" href="{{route('admin.reviews.index')}}">
                         <i class="fas fa-dashboard"></i>
-                        Reviews
+                        Đánh giá
+                    </a>
+                </li>
+                <li class="nav-item mt-2 mb-2">
+                    <a style="color: #942446; font-size: 1rem" class="nav-link d-flex align-items-center gap-2" aria-current="page" href="{{route('admin.users.index')}}">
+                        <i class="fas fa-dashboard"></i>
+                        Người dùng
                     </a>
                 </li>
             </ul>
             <hr class="my-3">
             <ul class="nav flex-column mb-auto">
                 <li class="nav-item">
-                    <a style="color: #942446; font-size: 1.25rem" class="nav-link d-flex align-items-center gap-2 mb-3" href="#" onclick="document.getElementById('AdminLogoutForm').submit()">
+                    <a style="color: #942446; font-size: 1rem" class="nav-link d-flex align-items-center gap-2 mb-3" href="#" onclick="document.getElementById('AdminLogoutForm').submit()">
                         <svg class="bi">
                             <use xlink:href="#door-closed" />
                         </svg>

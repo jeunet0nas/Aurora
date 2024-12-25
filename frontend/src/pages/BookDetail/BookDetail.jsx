@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { axiosRequest } from "../../helpers/config";
 import { GoComment } from "react-icons/go";
 import { FaRegStar } from "react-icons/fa";
@@ -11,7 +11,7 @@ import "./BookDetail.css";
 import "./ProductInfo.css";
 import Spinner from "../../layouts/Spinner";
 import { useDispatch } from "react-redux";
-import { addToCart, clearCart } from "../../redux/slices/cartSlice";
+import { addToCart, clearCartItems } from "../../redux/slices/cartSlice";
 import Reviews from "../../components/reviews/Reviews";
 
 export default function BookDetail() {
@@ -21,6 +21,7 @@ export default function BookDetail() {
   const [error, setError] = useState("");
   const { slug } = useParams();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchBookBySlug = async () => {
@@ -39,6 +40,24 @@ export default function BookDetail() {
     };
     fetchBookBySlug();
   }, [slug]);
+
+  const handleBuy = () => {
+    dispatch(clearCartItems());
+    dispatch(
+      addToCart({
+        book_id: book.book_id,
+        name: book.book_name,
+        slug: book.slug,
+        qty: parseInt(qty),
+        price: parseInt(book.book_price),
+        author: book.author_name,
+        maxQty: parseInt(book.book_qty),
+        image: book.thumbnail,
+        coupon_id: null,
+      })
+    );
+    navigate("/checkout");
+  };
 
   const calReviewAVG = () => {
     let average = book?.reviews?.reduce((acc, review) => {
@@ -102,38 +121,46 @@ export default function BookDetail() {
                   </div>
                 </div>
 
-                <span id="book-price">{book?.book_price}$</span>
+                <span id="book-price">{book?.book_price} vnđ</span>
 
                 <div className="book-action d-flex gap-3 mt-3">
-                  <Button
-                    variant="outline-danger"
-                    id="btn-addToCart"
-                    disabled={book.book_qty == 0}
-                    onClick={() =>
-                      dispatch(
-                        addToCart({
-                          book_id: book.book_id,
-                          name: book.book_name,
-                          slug: book.slug,
-                          qty: parseInt(qty),
-                          price: parseInt(book.book_price),
-                          author: book.author_name,
-                          maxQty: parseInt(book.book_qty),
-                          image: book.thumbnail,
-                          coupon_id: null,
-                        })
-                      )
-                    }
-                  >
-                    Thêm vào giỏ
-                  </Button>
-                  <Button
-                    variant="danger"
-                    id="btn-buy"
-                    // disabled={!book.isAvailable}
-                  >
-                    BUY
-                  </Button>
+                  {book.book_qty == 0 || book.status == 0 ? (
+                    <div className="not-available">
+                      <span
+                        className="badge my-1 rounded-0"
+                        style={{ background: "#942446", color: "#fefefe" }}
+                      >
+                        Tạm ngưng bán
+                      </span>
+                    </div>
+                  ) : (
+                    <>
+                      <Button
+                        variant="outline-danger"
+                        id="btn-addToCart"
+                        onClick={() =>
+                          dispatch(
+                            addToCart({
+                              book_id: book.book_id,
+                              name: book.book_name,
+                              slug: book.slug,
+                              qty: parseInt(qty),
+                              price: parseInt(book.book_price),
+                              author: book.author_name,
+                              maxQty: parseInt(book.book_qty),
+                              image: book.thumbnail,
+                              coupon_id: null,
+                            })
+                          )
+                        }
+                      >
+                        Thêm vào giỏ
+                      </Button>
+                      <Button variant="danger" id="btn-buy" onClick={handleBuy}>
+                        Mua
+                      </Button>
+                    </>
+                  )}
                 </div>
               </div>
 
