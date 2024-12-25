@@ -1,0 +1,34 @@
+.not-found-page {
+  margin-top: 50px;
+  min-height: 700px;
+}
+
+.not-found-icon {
+  margin-top: 180px;
+  font-size: 5rem;
+  color: #942446;
+  margin-bottom: 20px;
+}
+
+.not-found-title {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.not-found-text {
+  font-size: 1.25rem;
+  margin-bottom: 30px;
+}
+
+.not-found-btn {
+  font-size: 1rem;
+  padding: 10px 20px;
+  background-color: #942446 !important;
+  border: none !important;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.not-found-btn:hover {
+  background-color: #7a1e38 !important;
+  color: #ffffff !important;
+}
