@@ -10,6 +10,8 @@ import Checkout from "../pages/Checkout/Checkout";
 import Profile from "../pages/UserProfile/Profile";
 import ChangePassword from "../pages/ChangePassword/ChangePassword";
 import UserOrders from "../pages/UserOrders/UserOrders";
+import NotFound from "../pages/NotFound/NotFound";
+import AboutUs from "../pages/AboutUs/AboutUs";
 
 const AppRouter = () => {
   return (
@@ -84,6 +86,24 @@ const AppRouter = () => {
           element={
             <MainLayout>
               <UserOrders />
+            </MainLayout>
+          }
+        />
+        {/* Thông tin */}
+        <Route
+          path="/about-us"
+          element={
+            <MainLayout>
+              <AboutUs />
+            </MainLayout>
+          }
+        />
+        {/* Lỗi*/}
+        <Route
+          path="*"
+          element={
+            <MainLayout>
+              <NotFound />
             </MainLayout>
           }
         />

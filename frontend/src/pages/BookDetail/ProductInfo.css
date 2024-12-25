@@ -58,6 +58,7 @@
   font-weight: 600; /* Chỉnh font kiểu semi-bold */
   padding: 0.3125rem 1.875rem; /* Sử dụng rem thay cho px */
   font-size: 0.9375rem; /* Sử dụng rem thay cho px */
+  margin-top: 1rem;
 }
 
 #btn-addToCart {
@@ -94,15 +95,21 @@
 }
 
 .book-info {
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
+  margin-top: 1.5rem;
 }
 
 .info-item {
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
 }
 
 #book-price {
   font-weight: 500;
+  font-size: 2rem;
+}
+
+.not-available {
+  margin-top: 1rem;
   font-size: 2rem;
 }
 

@@ -159,7 +159,7 @@ export default function Checkout() {
               {user?.profile_completed ? (
                 <button
                   onClick={handleConfirmOrder}
-                  className="btn btn-primary rounded-0"
+                  className="btn-buy btn btn-primary rounded-0"
                 >
                   Mua hàng
                 </button>

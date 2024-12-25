@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\BookController;
 use App\Http\Controllers\Admin\CouponController;
 use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\ReviewController;
+use App\Http\Controllers\Admin\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/',[AdminController::class,'login'])->name('admin.login');
@@ -65,4 +66,8 @@ Route::middleware('admin')->group(function(){
     Route::get('reviews', [ReviewController::class, 'index'])->name('admin.reviews.index');
     Route::get('update/{review}/{status}/review', [ReviewController::class,'toggleApprovedStatus'])->name('admin.reviews.update');
     Route::delete('delete/{review}/review', [ReviewController::class, 'destroy'])->name('admin.reviews.delete');
+
+    // routes users
+    Route::get('users', [UserController::class, 'index'])->name('admin.users.index');
+    Route::delete('delete/{user}/user', [UserController::class, 'destroy'])->name('admin.users.delete');
 });
