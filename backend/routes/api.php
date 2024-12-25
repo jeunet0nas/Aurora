@@ -3,6 +3,7 @@
 use App\Http\Controllers\Api\BookController;
 use App\Http\Controllers\Api\CouponController;
 use App\Http\Controllers\Api\OrderController;
+use App\Http\Controllers\Api\ReviewController;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Resources\UserResource;
 use Illuminate\Http\Request;
@@ -26,6 +27,11 @@ Route::middleware('auth:sanctum')->group(function(){
 
     // Hóa đơn
     Route::post('store/order', [OrderController::class, 'store']);
+
+    // Đánh giá
+    Route::post('review/store', [ReviewController::class, 'store']);
+    Route::put('review/update', [ReviewController::class, 'update']);
+    Route::post('review/delete', [ReviewController::class, 'delete']);
 });
 
 

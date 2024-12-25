@@ -12,6 +12,7 @@ import "./ProductInfo.css";
 import Spinner from "../../layouts/Spinner";
 import { useDispatch } from "react-redux";
 import { addToCart, clearCart } from "../../redux/slices/cartSlice";
+import Reviews from "../../components/reviews/Reviews";
 
 export default function BookDetail() {
   const [book, setBook] = useState([]);
@@ -39,10 +40,16 @@ export default function BookDetail() {
     fetchBookBySlug();
   }, [slug]);
 
+  const calReviewAVG = () => {
+    let average = book?.reviews?.reduce((acc, review) => {
+      return (acc += review.rating / book.reviews.length);
+    }, 0);
+
+    return average > 0 ? average.toFixed(1) : 0;
+  };
+
   return (
     <div className="product-page">
-      {/* <ProductInfo selBook={book} /> */}
-
       {error ? (
         <Alert conten={error} type="danger" />
       ) : loading ? (
@@ -70,10 +77,11 @@ export default function BookDetail() {
                 <div className="rating-info">
                   <label className="rating-comment">
                     <GoComment className="icon" />
-                    10
+                    {calReviewAVG() > 0 ? book?.reviews.length : 0}
                   </label>
                   <label className="rating-comment">
-                    <FaRegStar className="icon" /> 10
+                    <FaRegStar className="icon" />{" "}
+                    {calReviewAVG() > 0 ? calReviewAVG() : "N/A"}
                   </label>
                 </div>
                 <div className="book-info">
@@ -81,7 +89,7 @@ export default function BookDetail() {
                     <strong>Thể loại:</strong> {book?.category}
                   </div>
                   <div className="info-item">
-                    <strong>Năm phát hành:</strong>
+                    <strong>Năm xuất bản:</strong>
                     {book?.publish_year}
                   </div>
                   <div className="info-item">
@@ -117,7 +125,7 @@ export default function BookDetail() {
                       )
                     }
                   >
-                    ADD TO CART
+                    Thêm vào giỏ
                   </Button>
                   <Button
                     variant="danger"
@@ -138,8 +146,8 @@ export default function BookDetail() {
           </div>
 
           <div className="product-reviews">
-            <h2>Customer Reviews</h2>
-            {/* <ReviewCard reviews={reviews} onAddReview={handleAddReview} /> */}
+            <h2>Đánh giá khách hàng ({book?.reviews?.length})</h2>
+            <Reviews book={book} setLoading={setLoading} />
           </div>
 
           <div className="related-products">

@@ -29,7 +29,7 @@ class Review extends Model
         return $this->belongsTo(Book::class, 'book_id');
     }
 
-    public function getCreatedAttribute($value){
+    public function getCreatedAtAttribute($value){
         return Carbon::parse($value)->diffForHumans();
     }
 }
