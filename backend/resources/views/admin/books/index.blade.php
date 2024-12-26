@@ -1,7 +1,7 @@
 @extends('admin.layouts.app')
 
 @section('title')
-    Books
+    Sách
 @endsection
 
 @section('content')
@@ -11,7 +11,7 @@
         <div class="row mt-2">
             <div class="col-md-12">
                 <div class="card-header bg-white d-flex justify-content-between align-items-center">
-                    <h3 class="mt-2">Books ({{$books->count()}})</h3>
+                    <h3 class="mt-2">Sách ({{$books->count()}})</h3>
                     <a href="{{route('admin.books.create')}}" class="btn btn-sm btn-primary">
                         <i class="fas fa-plus"></i>
                     </a>
@@ -21,14 +21,14 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th scope="col">ID</th>
-                                <th scope="col">Name</th>
-                                <th scope="col">Category</th>
-                                <th scope="col">Author</th>
+                                <th scope="col">#</th>
+                                <th scope="col">Tên sách</th>
+                                <th scope="col">Thể loại</th>
+                                <th scope="col">Tác giả</th>
                                 <th scope="col">Qty</th>
-                                <th scope="col">Price</th>
-                                <th scope="col">Image</th>
-                                <th scope="col">Status</th>
+                                <th scope="col">Giá</th>
+                                <th scope="col">Ảnh</th>
+                                <th scope="col">Trạng thái</th>
                                 <th scope="col"></th>
                             </tr>
                         </thead>
