@@ -169,33 +169,17 @@ export default function BookDetail() {
                 <p>{book?.desc}</p>
               </div>
             </div>
-            <ToastContainer />
           </div>
 
-          <div className="product-reviews">
-            <h2>Đánh giá khách hàng ({book?.reviews?.length})</h2>
-            <Reviews book={book} setLoading={setLoading} />
-          </div>
+          {book?.reviews?.length > 0 && (
+            <div className="product-reviews">
+              <h2>Đánh giá khách hàng ({book?.reviews?.length})</h2>
+              <Reviews book={book} setLoading={setLoading} />
+            </div>
+          )}
 
           <div className="related-products">
-            <h2>YOU MAY ALSO LIKE</h2>
-            {/* <Container className="book-list-container">
-          <Row className="book-list-row">
-            {booksData.map((book) => (
-              <Col
-                key={book.id}
-                xs={6} 
-                sm={6} 
-                md={6} 
-                lg={6} 
-                xl={3} 
-                className="book-list-col"
-              >
-                <BookCard book={book} />
-              </Col>
-            ))}
-          </Row>
-        </Container> */}
+            <h2>CÓ THỂ BẠN SẼ THÍCH</h2>
           </div>
         </>
       )}
