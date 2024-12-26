@@ -1,0 +1,12 @@
+.home-new-arrival-row,
+.home-best-seller-row,
+.home-authors-row {
+  margin: 0 auto !important;
+  width: 90% !important;
+}
+
+.home-page-tilte {
+  margin-left: -1rem;
+  margin-top: 2rem;
+  margin-bottom: 0rem;
+}
