@@ -1,7 +1,7 @@
 @extends('admin.layouts.app')
 
 @section('title')
-    - Người dùng
+    Người dùng
 @endsection
 
 @section('content')

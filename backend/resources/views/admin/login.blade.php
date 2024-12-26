@@ -67,16 +67,16 @@
 
                                 <div class="p-5">
                                     <div class="mb-5">
-                                        <h3 class="h4 font-weight-bold text-theme">Login</h3>
+                                        <h3 class="h4 font-weight-bold text-theme">Login for Aurora</h3>
                                     </div>
 
                                     <h6 class="h5 mb-0">Welcome back!</h6>
-                                    <p class="text-muted mt-2 mb-5">Enter your email address and password to access admin panel.</p>
+                                    <p class="text-muted mt-2 mb-5">Nhập thông tin định danh để truy cập.</p>
 
                                     <form action={{route('admin.auth')}} method="post">
                                         @csrf
                                         <div class="form-group mb-3">
-                                            <label for="floatingInput">Email address*</label>
+                                            <label for="floatingInput">Email*</label>
                                             <input type="email" class="form-control @error('email') is-invalid @enderror" id="floatingInput" name="email" placeholder="name@example.com">
                                             @error('email')
                                                 <span class="invalid-feedback">
@@ -86,7 +86,7 @@
                                         </div>
 
                                         <div class="form-group mb-3">
-                                            <label for="floatingPassword">Password*</label>
+                                            <label for="floatingPassword">Mật khẩu*</label>
                                             <input type="password" class="form-control @error('password') is-invalid @enderror" id="floatingPassword" name="password" placeholder="Password">
                                             @error('password')
                                                 <span class="invalid-feedback">
@@ -103,9 +103,9 @@
                                 <div class="account-block rounded-right">
                                     <div class="overlay rounded-right"></div>
                                     <div class="account-testimonial">
-                                        <h4 class="text-white mb-4">This  beautiful theme yours!</h4>
-                                        <p class="lead text-white">"Best investment i made for a long time. Can only recommend it for other users."</p>
-                                        <p>- Admin User</p>
+                                        <h4 class="text-white mb-4">Welcome back admin!</h4>
+                                        <p class="lead text-white">"Sách không chỉ là sách, bên cạnh là sách nó còn là sách"</p>
+                                        <p>- Admin </p>
                                     </div>
                                 </div>
                             </div>

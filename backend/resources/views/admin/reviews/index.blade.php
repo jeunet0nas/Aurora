@@ -1,7 +1,7 @@
 @extends('admin.layouts.app')
 
 @section('title')
-    - Đánh giá
+    Đánh giá
 @endsection
 
 @section('content')
