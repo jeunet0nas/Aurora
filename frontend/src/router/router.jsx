@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import MainLayout from "../layouts/MainLayout";
 import AuthLayout from "../layouts/AuthLayout";
-import Home from "../pages/HomePage/Home";
+import Home from "../pages/Home/Home";
 import LoginSignup from "../pages/LoginSignup/LoginSignup";
 import Catalog from "../pages/Catalog/Catalog";
 import BookDetail from "../pages/BookDetail/BookDetail";
@@ -12,6 +12,7 @@ import ChangePassword from "../pages/ChangePassword/ChangePassword";
 import UserOrders from "../pages/UserOrders/UserOrders";
 import NotFound from "../pages/NotFound/NotFound";
 import AboutUs from "../pages/AboutUs/AboutUs";
+import AuthorDetail from "../pages/AuthorDetail/AuthorDetail";
 
 const AppRouter = () => {
   return (
@@ -37,10 +38,19 @@ const AppRouter = () => {
         />
         {/* Chi tiết sách */}
         <Route
-          path="catalog/book/:slug"
+          path="/book/:slug"
           element={
             <MainLayout>
               <BookDetail />
+            </MainLayout>
+          }
+        />
+        {/* Chi tiết tác giả */}
+        <Route
+          path="/author/:author_slug"
+          element={
+            <MainLayout>
+              <AuthorDetail />
             </MainLayout>
           }
         />

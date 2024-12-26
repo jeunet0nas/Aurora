@@ -15,6 +15,7 @@
 }
 
 .book-card-img {
+  max-height: 440px !important;
   object-fit: cover;
   object-position: center;
   cursor: pointer;
@@ -49,16 +50,16 @@
   display: flex;
   align-items: center;
   margin: 0.5rem 0;
-  font-size: 0.8rem;
+  font-size: 0.5rem;
 }
 
 .comment-icon,
 .star-icon {
-  width: 3rem;
+  width: 5rem;
   height: auto;
   margin-right: 0.5rem;
   margin-top: -0.2rem;
-  font-size: 1.05rem;
+  font-size: 1.25rem;
   margin-bottom: 0.5rem;
 }
 

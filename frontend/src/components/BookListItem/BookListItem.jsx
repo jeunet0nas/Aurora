@@ -1,7 +1,8 @@
 import React from "react";
 import { Card, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { FaComment, FaStar } from "react-icons/fa";
+import { GoComment } from "react-icons/go";
+import { FaRegStar } from "react-icons/fa";
 import "./BookListItem.css";
 
 export default function BookListItem({ book }) {
@@ -14,7 +15,10 @@ export default function BookListItem({ book }) {
   };
   return (
     <Col key={book.id} xs={12} sm={6} md={6} lg={4} className="mb-2">
-      <Link className="text-decoration-none text-dark" to={`book/${book.slug}`}>
+      <Link
+        className="text-decoration-none text-dark"
+        to={`/book/${book.slug}`}
+      >
         <Card key={book.book_id} className="book-card">
           <div className="card-image">
             <Card.Img
@@ -33,15 +37,16 @@ export default function BookListItem({ book }) {
             </div>
             <div className="book-card-rating">
               <div className="comment-icon">
-                <FaComment /> {calReviewAVG() > 0 ? book?.reviews.length : 0}
+                <GoComment style={{ marginRight: "0.3rem" }} />{" "}
+                {calReviewAVG() > 0 ? book?.reviews.length : 0}
               </div>
               <div className="star-icon">
-                <FaStar className="start" />{" "}
+                <FaRegStar className="star" />{" "}
                 {calReviewAVG() > 0 ? calReviewAVG() : "N/A"}
               </div>
             </div>
             <p className="book-card-price" style={{ fontWeight: "bold" }}>
-              {book.book_price}
+              {book.book_price} vnđ
             </p>
           </Card.Body>
         </Card>

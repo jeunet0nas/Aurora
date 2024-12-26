@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\AuthorController;
 use App\Http\Controllers\Api\BookController;
 use App\Http\Controllers\Api\CouponController;
 use App\Http\Controllers\Api\OrderController;
@@ -35,11 +36,16 @@ Route::middleware('auth:sanctum')->group(function(){
 });
 
 
-// books api routes
+// Sách
 Route::get('books', [BookController::class,'index']);
 Route::get('books/{searchTerm}/find', [BookController::class, 'findBookByTerm']);
 Route::get('book/{book}/show', [BookController::class, 'show']);
+Route::get('best-sellers', [BookController::class, 'bestSellers']);
 
-// user routes
+// Xác thực người dùng
 Route::post('user/register', [UserController::class, 'store']);
 Route::post('user/login', [UserController::class, 'auth']);
+
+// Tác giả
+Route::get('authors', [AuthorController::class, 'index']);
+Route::get('author/{author}/show', [AuthorController::class, 'show']);

@@ -19,10 +19,7 @@ export default function CartItem({ item }) {
           <img src={item.image} alt={item.name} className="cart-item-image" />
           <div>
             <h5>
-              <Link
-                to={`/catalog/book/${item.slug}`}
-                className="book-item-title"
-              >
+              <Link to={`/book/${item.slug}`} className="book-item-title">
                 {item.name}
               </Link>
             </h5>

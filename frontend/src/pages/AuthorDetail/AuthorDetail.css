@@ -1,0 +1,83 @@
+.author-info-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.author-info {
+  width: 85%;
+  display: flex;
+  gap: 1rem;
+}
+
+.author-image {
+  flex: 1 1 25%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+}
+
+.custom-image {
+  width: 95%;
+  height: auto;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.author-image {
+  max-height: 400px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+}
+
+.author-image img {
+  object-position: top;
+}
+
+.author-details {
+  flex: 1 1 40%;
+}
+
+.author-description {
+  padding-top: 0.3rem;
+  flex: 1 1 35%;
+}
+
+.author-info .info-item strong {
+  margin-right: 0.5rem;
+}
+
+.author-info {
+  margin-bottom: 2rem;
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .author-info {
+    flex-direction: column; /* Chuyển sang bố cục cột trên màn hình nhỏ hơn */
+  }
+
+  .book-description {
+    order: 3; /* Đảm bảo book-description xuống dòng toàn nội dung */
+    width: 100%; /* Chiếm toàn bộ chiều rộng */
+    margin-top: 1rem; /* Thêm khoảng cách trên */
+  }
+
+  .product-details {
+    width: 100%; /* Chiếm toàn bộ chiều rộng */
+    margin-bottom: 1rem; /* Thêm khoảng cách dưới */
+  }
+
+  .product-image {
+    width: 40%; /* Chiếm 40% chiều rộng */
+    margin: 0 auto; /* Căn giữa hình ảnh */
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+  }
+}

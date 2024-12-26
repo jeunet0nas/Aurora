@@ -1,0 +1,16 @@
+.carousel {
+  max-width: 1800px;
+  max-height: 844px;
+  margin: 0 auto; /* Căn giữa Carousel */
+}
+
+.carousel img {
+  width: 100%; /* Đảm bảo hình ảnh chiếm toàn bộ chiều rộng của Carousel */
+  max-height: 700px; /* Giữ tỷ lệ khung hình của hình ảnh */
+}
+
+.carousel-caption {
+  background-color: rgba(0, 0, 0, 0.5); /* Thêm nền mờ cho chú thích */
+  padding: 10px; /* Thêm khoảng cách bên trong cho chú thích */
+  border-radius: 5px; /* Bo tròn các góc của chú thích */
+}
