@@ -57,7 +57,6 @@ export default function AuthorDetail() {
               <div className="book-details flex-grow-1">
                 <div className="book-introduction">
                   <h2>{author?.author_name}</h2>
-                  <p>alsidjg</p>
                 </div>
                 <div className="book-info">
                   <div className="info-item">

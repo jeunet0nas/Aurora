@@ -2,10 +2,10 @@ import React from "react";
 import "./AboutUs.css";
 
 const contributors = [
-  { id: 22521311, content: "Phạm Nhật Tân" },
-  { id: 22521312, content: "Nguyễn Đăng Tân" },
-  { id: 22521313, content: "Trần Nguyễn Bảo Trâm" },
-  { id: 22521314, content: "Lê Bá Vinh" },
+  { id: 22521311, content: "PHẠM NHẬT TÂN" },
+  { id: 22521312, content: "NGUYỄN ĐĂNG TÂN" },
+  { id: 22521313, content: "TRẦN NGUYỄN BẢO TRÂM" },
+  { id: 22521314, content: "LÊ BÁ VINH" },
 ];
 
 export default function AboutUs() {
@@ -34,7 +34,7 @@ export default function AboutUs() {
       </div>
       <div className="about-us-history">
         <div>
-          <h3 className="container-title mb-3">Something about dau</h3>
+          <h3 className="container-title mb-3">THÔNG TIN NHÓM PHÁT TRIỂN</h3>
           <ul>
             {contributors.map((item, index) => (
               <li key={index}>

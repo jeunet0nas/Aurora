@@ -73,7 +73,7 @@
                                     <select name="category" id="category" class="form-control @error('category') is-invalid @enderror">
                                         <option value="Giả tưởng" {{ old('category') == 'Giả tưởng' ? 'selected' : '' }}>Giả tưởng</option>
                                         <option value="Lãng mạn" {{ old('category') == 'Lãng mạn' ? 'selected' : '' }}>Lãng mạn</option>
-                                        <option value="Khoa học viễn tưởng" {{ old('category') == 'Khoa học viễn tưởng' ? 'selected' : '' }}>Khoa học viễn tưởng</option>
+                                        <option value="Viễn tưởng" {{ old('category') == 'Viễn tưởng' ? 'selected' : '' }}>Viễn tưởng</option>
                                         <option value="Kinh dị" {{ old('category') == 'Kinh dị' ? 'selected' : '' }}>Kinh dị</option>
                                         <option value="Phiêu lưu" {{ old('category') == 'Phiêu lưu' ? 'selected' : '' }}>Phiêu lưu</option>
                                         <option value="Trinh thám" {{ old('category') == 'Trinh thám' ? 'selected' : '' }}>Trinh thám</option>

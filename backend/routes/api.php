@@ -41,6 +41,8 @@ Route::get('books', [BookController::class,'index']);
 Route::get('books/{searchTerm}/find', [BookController::class, 'findBookByTerm']);
 Route::get('book/{book}/show', [BookController::class, 'show']);
 Route::get('best-sellers', [BookController::class, 'bestSellers']);
+Route::get('books/filter', [BookController::class, 'filterBooks']);
+Route::get('books/category/{category}/{book_id}', [BookController::class, 'getBooksByCategory']);
 
 // Xác thực người dùng
 Route::post('user/register', [UserController::class, 'store']);

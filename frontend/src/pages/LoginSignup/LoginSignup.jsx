@@ -138,7 +138,7 @@ export default function LoginSignup() {
                     <input
                       id="name"
                       type="text"
-                      placeholder="Username"
+                      placeholder="Tên người dùng"
                       className="login-signup-input"
                       value={user.customer_name}
                       onChange={(e) =>
@@ -155,7 +155,7 @@ export default function LoginSignup() {
               <div className="login-signup-input-group">
                 <input
                   type="email"
-                  placeholder="Email address"
+                  placeholder="Email"
                   className="login-signup-input"
                   value={user.email}
                   onChange={(e) => setUser({ ...user, email: e.target.value })}
@@ -166,7 +166,7 @@ export default function LoginSignup() {
               <div className="login-signup-input-group">
                 <input
                   type="password"
-                  placeholder="Password"
+                  placeholder="Mật khẩu"
                   className="login-signup-input"
                   value={user.password}
                   onChange={(e) =>
@@ -196,7 +196,7 @@ export default function LoginSignup() {
                       action === "Login" ? handleSubmit : handleChangeAction
                     }
                   >
-                    Login
+                    Đăng nhập
                   </Button>
                   <Button
                     type="button"
@@ -209,7 +209,7 @@ export default function LoginSignup() {
                       action === "Sign Up" ? handleSubmit : handleChangeAction
                     }
                   >
-                    Sign Up
+                    Đăng ký
                   </Button>
                 </div>
               )}

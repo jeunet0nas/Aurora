@@ -4,6 +4,7 @@ import { Container, Card, Button, ListGroup } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { FaShoppingCart } from "react-icons/fa";
 import CartItem from "../../components/CartItem/CardItem";
+import { BsCartXFill } from "react-icons/bs";
 import "./Cart.css";
 
 export default function Cart() {
@@ -30,10 +31,14 @@ export default function Cart() {
         </div>
       ) : (
         <div className="empty-cart">
-          <h2>Your Cart is Empty</h2>
-          <p>It looks like you haven't added any items to your cart yet.</p>
+          <BsCartXFill className="non-cart-icon" />
+          <h2>Giỏ hàng của bạn hiện đang trống</h2>
+          <p>
+            Hãy khám phá những tác phẩm tuyệt vời và bắt đầu thêm vào giỏ hàng
+            ngay bây giờ!
+          </p>
           <Link to="/" className="btn btn-primary btn-home">
-            Back to Home
+            Quay trở lại trang chủ
           </Link>
         </div>
       )}
@@ -53,10 +58,10 @@ export default function Cart() {
 
               <div className="shopping-cart-button-group">
                 <Link to="/" className="btn btn-primary btn-home">
-                  Continue Shopping
+                  Tiếp tục khám phá
                 </Link>
                 <Link to="/checkout" className="btn btn-checkout">
-                  Checkout
+                  Thanh toán
                 </Link>
               </div>
             </Card.Body>

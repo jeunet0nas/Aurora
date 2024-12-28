@@ -1,15 +1,8 @@
 import React, { useEffect, useState } from "react";
-import {
-  Row,
-  Col,
-  Card,
-  Form,
-  Button,
-  Pagination,
-  Container,
-} from "react-bootstrap";
+import { Row, Col, Form, Button, Container } from "react-bootstrap";
 import { useDebounce } from "use-debounce";
 import { FaAngleDown } from "react-icons/fa";
+import { GrCatalog } from "react-icons/gr";
 import { axiosRequest } from "../../helpers/config";
 import BookList from "../../components/BookList/BookList";
 import Alert from "../../layouts/Alert";
@@ -19,12 +12,12 @@ import "./Catalog.css";
 const languages = ["Tiếng Việt", "Tiếng Anh"];
 const genres = [
   "Giả tưởng",
+  "Kinh dị",
+  "Phiêu lưu",
+  "Tâm lý",
   "Trinh thám",
-  "Educational",
-  "Romance",
-  "Adventure",
-  "Selfhept",
-  "Trinh Thám",
+  "Văn học cổ điển",
+  "Viễn tưởng",
 ];
 
 export default function Catalog() {
@@ -32,64 +25,16 @@ export default function Catalog() {
   const [loading, setLoading] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const [message, setMessage] = useState("");
-  const debouncedSearchTerm = useDebounce(searchTerm, 500);
-
-  const [filteredBooks, setFilteredBooks] = useState(books);
-  const [showAllLanguages, setShowAllLanguages] = useState(false);
-  const [showAllGenres, setShowAllGenres] = useState(false);
   const [filters, setFilters] = useState({
     GENRES: [],
     LANGUAGE: [],
-    AUTHOR: "",
-    PRICE: { min: "", max: "" },
+    PRICE: { min: "100000", max: "1000000" },
   });
-
-  const applyFilters = () => {
-    const { GENRES, LANGUAGE, AUTHOR, PRICE } = filters;
-
-    const filtered = books.filter((book) => {
-      const genresMatch = GENRES.length ? GENRES.includes(book.category) : true;
-      const languageMatch = LANGUAGE.length
-        ? LANGUAGE.includes(book.language)
-        : true;
-      const authorMatch = AUTHOR
-        ? book.author_name.toLowerCase().includes(AUTHOR.toLowerCase())
-        : true;
-      const priceMatch =
-        (PRICE.min === "" || book.book_price >= Number(PRICE.min)) &&
-        (PRICE.max === "" || book.book_price <= Number(PRICE.max));
-      const searchMatch = searchText
-        ? book.book_name.toLowerCase().includes(searchText.toLowerCase())
-        : true;
-
-      return (
-        genresMatch && languageMatch && authorMatch && priceMatch && searchMatch
-      );
-    });
-
-    setFilteredBooks(filtered);
-  };
-
-  const handleFilterChange = (type, value) => {
-    setFilters((prev) => {
-      if (type === "GENRES" || type === "LANGUAGE") {
-        const isSelected = prev[type].includes(value);
-        return {
-          ...prev,
-          [type]: isSelected
-            ? prev[type].filter((item) => item !== value)
-            : [...prev[type], value],
-        };
-      }
-      if (type === "AUTHOR") {
-        return { ...prev, AUTHOR: value };
-      }
-      if (type === "PRICE") {
-        return { ...prev, PRICE: { ...prev.PRICE, ...value } };
-      }
-      return prev;
-    });
-  };
+  const [showAllGenres, setShowAllGenres] = useState(false);
+  const [showAllLanguages, setShowAllLanguages] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [booksPerPage] = useState(6);
+  const debouncedSearchTerm = useDebounce(searchTerm, 500);
 
   useEffect(() => {
     const fetchAllBooks = async () => {
@@ -120,115 +65,180 @@ export default function Catalog() {
     fetchAllBooks();
   }, [debouncedSearchTerm[0]]);
 
-  const handleSearch = () => {
-    // Implement search functionality here
+  const handleFilterChange = (type, value) => {
+    setFilters((prevFilters) => {
+      switch (type) {
+        case "GENRES":
+          return {
+            ...prevFilters,
+            GENRES: prevFilters.GENRES.includes(value)
+              ? prevFilters.GENRES.filter((genre) => genre !== value)
+              : [...prevFilters.GENRES, value],
+          };
+        case "LANGUAGE":
+          return {
+            ...prevFilters,
+            LANGUAGE: prevFilters.LANGUAGE.includes(value)
+              ? prevFilters.LANGUAGE.filter((lang) => lang !== value)
+              : [...prevFilters.LANGUAGE, value],
+          };
+        case "PRICE":
+          return { ...prevFilters, PRICE: { ...prevFilters.PRICE, ...value } };
+        default:
+          return prevFilters;
+      }
+    });
   };
+
+  const applyFilters = async () => {
+    setMessage("");
+    setLoading(true);
+    console.log(filters);
+    try {
+      const response = await axiosRequest.get("books/filter", {
+        params: {
+          genres: filters.GENRES,
+          language: filters.LANGUAGE,
+          price_min: filters.PRICE.min,
+          price_max: filters.PRICE.max,
+        },
+      });
+      if (response.data.data.length > 0) {
+        setBooks(response.data.data);
+        setCurrentPage(1);
+      } else {
+        setMessage("Không có sách phù hợp");
+      }
+      setLoading(false);
+    } catch (error) {
+      console.log(error);
+      setLoading(false);
+    }
+  };
+
+  const indexOfLastBook = currentPage * booksPerPage;
+  const indexOfFirstBook = indexOfLastBook - booksPerPage;
+  const currentBooks = books.slice(indexOfFirstBook, indexOfLastBook);
+
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
     <Container fluid className="catalog-container">
       <Row>
         {/* Thanh filter theo chiều dọc */}
-        <Col md={3} className="filter-bar">
-          <div className="logo mb-4 mt-4">
-            <h2>Books</h2>
-          </div>
-          <div className="filter-section">
-            <h2>Filter</h2>
-            <p>{filteredBooks.length} results</p>
-
-            <div className="filter-tags mb-4">
-              {filters.LANGUAGE.map((lang) => (
-                <span key={lang} className="badge bg-secondary  me-2">
-                  {lang}
-                </span>
-              ))}
-              {filters.GENRES.map((lang) => (
-                <span key={lang} className="badge bg-secondary  me-2">
-                  {lang}
-                </span>
-              ))}
-            </div>
-            <div className="filter-options mb-4">
-              <h3>Genres</h3>
-              {genres
-                .slice(0, showAllGenres ? genres.length : 5)
-                .map((genres) => (
-                  <Form.Check
-                    key={genres}
-                    label={genres}
-                    onChange={() => handleFilterChange("GENRES", genres)}
-                  />
-                ))}
-              {genres.length > 5 && (
-                <Button
-                  variant="link"
-                  className="showMore  p-0"
-                  onClick={() => setShowAllGenres(!showAllGenres)}
-                >
-                  {showAllGenres ? "View Less" : "View More"} <FaAngleDown />
-                </Button>
-              )}
-            </div>
-
-            <div className="filter-options mb-4">
-              <h3>Language</h3>
-              {languages
-                .slice(0, showAllLanguages ? languages.length : 5)
-                .map((language) => (
-                  <Form.Check
-                    key={language}
-                    label={language}
-                    onChange={() => handleFilterChange("LANGUAGE", language)}
-                  />
-                ))}
-              {languages.length > 5 && (
-                <Button
-                  variant="link"
-                  className="showMore  p-0"
-                  onClick={() => setShowAllLanguages(!showAllLanguages)}
-                >
-                  {showAllLanguages ? "View Less" : "View More"}
-                  <FaAngleDown />
-                </Button>
-              )}
-            </div>
-
-            <div className="filter-options mb-4">
-              <h3>Author</h3>
-              <Form.Control
-                type="text"
-                placeholder="Find Author"
-                onChange={(e) => handleFilterChange("AUTHOR", e.target.value)}
+        <Col md={3}>
+          <div className=" mb-4 mt-4">
+            <h2 className="title-filter">
+              <GrCatalog
+                style={{ marginRight: "0.5rem", marginBottom: "0.25rem" }}
               />
-            </div>
+              Danh mục
+            </h2>
+          </div>
+          <div className="filter-bar">
+            <div className="filter-section">
+              <h3 className="filter-title">Bộ lọc</h3>
+              {/* <p className="opt-checkbox">{books.length} kết quả</p> */}
 
-            <div className="filter-price mb-4">
-              <h3>Price</h3>
-              <div className="d-flex gap-2">
-                <Form.Control
-                  type="number"
-                  placeholder="Min"
-                  onChange={(e) =>
-                    handleFilterChange("PRICE", { min: e.target.value })
-                  }
-                />
-                <Form.Control
-                  type="number"
-                  placeholder="Max"
-                  onChange={(e) =>
-                    handleFilterChange("PRICE", { max: e.target.value })
-                  }
-                />
+              <div className="filter-tags mb-4">
+                {filters.LANGUAGE.map((lang) => (
+                  <span
+                    key={lang}
+                    className="badge me-2"
+                    style={{ background: "#942446" }}
+                  >
+                    {lang}
+                  </span>
+                ))}
+                {filters.GENRES.map((genre) => (
+                  <span
+                    key={genre}
+                    className="badge me-2"
+                    style={{ background: "#942446" }}
+                  >
+                    {genre}
+                  </span>
+                ))}
               </div>
-            </div>
+              <div className="filter-options mb-4">
+                <h3 className="filter-title">Thể loại</h3>
+                {genres
+                  .slice(0, showAllGenres ? genres.length : 5)
+                  .map((genre) => (
+                    <Form.Check
+                      key={genre}
+                      label={genre}
+                      onChange={() => handleFilterChange("GENRES", genre)}
+                      className="opt-checkbox custom-checkbox"
+                    />
+                  ))}
+                {genres.length > 5 && (
+                  <Button
+                    variant="link"
+                    className="more-detail p-0"
+                    onClick={() => setShowAllGenres(!showAllGenres)}
+                  >
+                    {showAllGenres ? "Rút gọn" : "Xem thêm"} <FaAngleDown />
+                  </Button>
+                )}
+              </div>
 
-            <Button
-              variant="primary "
-              className="w-100 btn-catalog"
-              onClick={applyFilters}
-            >
-              Apply
-            </Button>
+              <div className="filter-options mb-4">
+                <h3 className="filter-title">Ngôn ngữ</h3>
+                {languages
+                  .slice(0, showAllLanguages ? languages.length : 5)
+                  .map((language) => (
+                    <Form.Check
+                      key={language}
+                      label={language}
+                      onChange={() => handleFilterChange("LANGUAGE", language)}
+                      className="opt-checkbox"
+                    />
+                  ))}
+                {languages.length > 5 && (
+                  <Button
+                    variant="link"
+                    className="showMore p-0"
+                    onClick={() => setShowAllLanguages(!showAllLanguages)}
+                  >
+                    {showAllLanguages ? "View Less" : "View More"}
+                    <FaAngleDown />
+                  </Button>
+                )}
+              </div>
+
+              <div className="filter-price mb-4">
+                <h3 className="filter-title">Giá</h3>
+                <div className="d-flex gap-2">
+                  <Form.Control
+                    type="number"
+                    placeholder="Min"
+                    onChange={(e) =>
+                      handleFilterChange("PRICE", { min: e.target.value })
+                    }
+                    className="catalog-control"
+                    defaultValue="100000"
+                  />
+                  <Form.Control
+                    type="number"
+                    placeholder="Max"
+                    onChange={(e) =>
+                      handleFilterChange("PRICE", { max: e.target.value })
+                    }
+                    className="catalog-control"
+                    defaultValue="1000000"
+                  />
+                </div>
+              </div>
+
+              <Button
+                variant="primary"
+                className="w-100 btn-catalog"
+                onClick={applyFilters}
+              >
+                Lọc kết quả
+              </Button>
+            </div>
           </div>
         </Col>
 
@@ -237,24 +247,11 @@ export default function Catalog() {
             <div className="d-flex boder-input">
               <Form.Control
                 type="search"
-                placeholder="Find Your Book Here"
-                className="me-2 boder-none"
+                placeholder="Nhập từ khóa cần tìm kiếm"
+                className="catalog-control me-2 boder-none"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                // onKeyDown={(e) => {
-                //   if (e.key === "Enter") {
-                //     e.preventDefault();
-                //     handleSearch();
-                //   }
-                // }}
               />
-              <Button
-                className="btn-catalog"
-                variant="danger"
-                onClick={handleSearch}
-              >
-                Search
-              </Button>
             </div>
           </div>
           {message ? (
@@ -262,7 +259,44 @@ export default function Catalog() {
           ) : loading ? (
             <Spinner />
           ) : (
-            <BookList books={books} />
+            <>
+              <BookList books={currentBooks} />
+              <div className="pagination-container">
+                <Button
+                  variant="link"
+                  className="pagination-button"
+                  disabled={currentPage === 1}
+                  onClick={() => paginate(currentPage - 1)}
+                >
+                  Trang trước
+                </Button>
+                {[...Array(Math.ceil(books.length / booksPerPage))].map(
+                  (_, index) => (
+                    <Button
+                      key={index}
+                      variant="link"
+                      className={`pagination-button ${
+                        index + 1 === currentPage ? "active" : ""
+                      }`}
+                      active={index + 1 === currentPage}
+                      onClick={() => paginate(index + 1)}
+                    >
+                      {index + 1}
+                    </Button>
+                  )
+                )}
+                <Button
+                  variant="link"
+                  className="pagination-button"
+                  disabled={
+                    currentPage === Math.ceil(books.length / booksPerPage)
+                  }
+                  onClick={() => paginate(currentPage + 1)}
+                >
+                  Trang tiếp theo
+                </Button>
+              </div>
+            </>
           )}
         </Col>
       </Row>

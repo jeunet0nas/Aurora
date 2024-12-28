@@ -3,6 +3,11 @@ ul {
   margin: 0;
 }
 
+.about-us-page{
+  margin-top: -2rem;
+  margin-bottom: -3rem;
+}
+
 .about-us-container-title {
   text-transform: uppercase;
   font-weight: 700;
