@@ -157,7 +157,7 @@ export default function UserOrders() {
                         <td>{(index += 1)}</td>
                         <td>
                           <Link
-                            to={`/catalog/book/${book.slug}`}
+                            to={`/book/${book.slug}`}
                             style={{ textDecoration: "none", color: "black" }}
                           >
                             {book.book_name}

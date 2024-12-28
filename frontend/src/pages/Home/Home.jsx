@@ -57,7 +57,7 @@ export default function Home() {
       <Row className="home-new-arrival-row">
         <Col className="home-new-arrival-col">
           {/* Khu vực MultiItem Slider cho New Arrival */}
-          <h2 className="home-page-tilte">New Arrival</h2>
+          <h1 className="home-page-tilte">Tác phẩm mới</h1>
           <MultiItemSlider items={booksNewArrival} itemType="book" />
         </Col>
       </Row>
@@ -65,7 +65,7 @@ export default function Home() {
       <Row className="home-best-seller-row">
         <Col>
           {/* Khu vực MultiItem Slider cho Best Seller */}
-          <h2 className="home-page-tilte">Best Seller</h2>
+          <h1 className="home-page-tilte">Tác phẩm bán chạy</h1>
           <MultiItemSlider items={booksBestSeller} itemType="book" />
         </Col>
       </Row>
@@ -73,7 +73,7 @@ export default function Home() {
       <Row className="home-authors-row">
         <Col>
           {/* Khu vực MultiItem Slider cho Tác giả */}
-          <h2 className="home-page-tilte">Tác giả</h2>
+          <h1 className="home-page-tilte">Tác giả bạn có thể thích</h1>
           <MultiItemSlider items={authors} itemType="author" />
         </Col>
       </Row>

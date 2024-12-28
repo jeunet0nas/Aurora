@@ -23,7 +23,7 @@ class ReviewController extends Controller
                 'rating' => $request->rating,
             ]);
             return response()->json([
-                'messsage' => 'Đánh giá của bạn đã được tạo thành công và sẽ sớm hiển thị'
+                'message' => 'Đánh giá của bạn đã được tạo thành công và sẽ sớm hiển thị'
             ]);
         }
     }

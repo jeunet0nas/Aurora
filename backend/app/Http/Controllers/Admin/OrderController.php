@@ -25,7 +25,7 @@ class OrderController extends Controller
             $query->whereBetween('created_at', [$start_date, $end_date]);
         }
 
-        $orders = $query->with('customer', 'coupon')->get();
+        $orders = $query->with('customer', 'coupon')->orderBy('created_at', 'desc')->get();
 
         return view('admin.orders.index', compact('orders'));
     }

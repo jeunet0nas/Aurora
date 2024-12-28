@@ -131,7 +131,7 @@ export default function ReviewForm() {
                       type="submit"
                       className="review-submit-btn"
                     >
-                      Submit
+                      Gửi
                     </Button>
                   ) : (
                     <>

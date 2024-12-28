@@ -56,19 +56,16 @@ export default function Header() {
     <Navbar expand="md" className="header" variant="dark">
       <Container>
         <Navbar.Brand className="header__logo" href="/">
-          <img src={logo} alt="Aurora Logo" style={{ height: "4rem" }} />
+          <img src={logo} alt="Aurora Logo" style={{ height: "4rem", marginLeft:"-1rem" }} />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto header__nav">
             <Nav.Link as={Link} to="/catalog" className="header__link">
-              Books
+              Danh mục
             </Nav.Link>
             <Nav.Link as={Link} to="/about-us" className="header__link">
-              About Us
-            </Nav.Link>
-            <Nav.Link as={Link} to="/contact" className="header__link">
-              Contacts
+              Về chúng tôi
             </Nav.Link>
           </Nav>
           <div className="header__icons d-flex align-items-center gap-3">
@@ -86,13 +83,13 @@ export default function Header() {
                   className="header__icon"
                   onClick={() => logoutUser()}
                 >
-                  <RiLogoutBoxRFill /> Logout
+                  <RiLogoutBoxRFill /> Đăng xuất
                 </Link>
               </>
             ) : (
               <>
                 <Link to="/authenticate" className="header__login">
-                  Login
+                  Đăng nhập
                 </Link>
               </>
             )}

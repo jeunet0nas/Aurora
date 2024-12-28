@@ -1,7 +1,9 @@
 .home-new-arrival-row,
 .home-best-seller-row,
 .home-authors-row {
-  margin: 0 auto !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  margin-top: 3rem !important;
   width: 90% !important;
 }
 

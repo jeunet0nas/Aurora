@@ -13,12 +13,14 @@ import Spinner from "../../layouts/Spinner";
 import { useDispatch } from "react-redux";
 import { addToCart, clearCartItems } from "../../redux/slices/cartSlice";
 import Reviews from "../../components/reviews/Reviews";
+import MultiItemSlider from "../../components/MutltiItemSlider/MultiItemSlider";
 
 export default function BookDetail() {
   const [book, setBook] = useState([]);
   const [loading, setLoading] = useState(false);
   const [qty, setQty] = useState(1);
   const [error, setError] = useState("");
+  const [relatedBooks, setRelatedBooks] = useState([]);
   const { slug } = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -40,6 +42,22 @@ export default function BookDetail() {
     };
     fetchBookBySlug();
   }, [slug]);
+
+  useEffect(() => {
+    if (book?.category && book?.book_id) {
+      const fetchRelatedBooks = async (category, book_id) => {
+        try {
+          const response = await axiosRequest.get(
+            `books/category/${category}/${book_id}`
+          );
+          setRelatedBooks(response.data.data);
+        } catch (error) {
+          console.log(error);
+        }
+      };
+      fetchRelatedBooks(book.category, book.book_id);
+    }
+  }, [book]);
 
   const handleBuy = () => {
     dispatch(clearCartItems());
@@ -91,7 +109,7 @@ export default function BookDetail() {
               <div className="product-details flex-grow-1">
                 <div className="book-introduction">
                   <h2>{book?.book_name}</h2>
-                  <p>{book?.author_name}</p>
+                  <p className="book-author">{book?.author_name}</p>
                 </div>
                 <div className="rating-info">
                   <label className="rating-comment">
@@ -165,21 +183,26 @@ export default function BookDetail() {
               </div>
 
               <div className="book-description">
-                <h3>About</h3>
+                <h3>Mô tả</h3>
                 <p>{book?.desc}</p>
               </div>
             </div>
           </div>
 
-          {book?.reviews?.length > 0 && (
-            <div className="product-reviews">
-              <h2>Đánh giá khách hàng ({book?.reviews?.length})</h2>
-              <Reviews book={book} setLoading={setLoading} />
-            </div>
-          )}
+          <div className="product-reviews">
+            <h2>ĐÁNH GIÁ KHÁCH HÀNG ({book?.reviews?.length})</h2>
+            <Reviews book={book} setLoading={setLoading} />
+          </div>
 
           <div className="related-products">
             <h2>CÓ THỂ BẠN SẼ THÍCH</h2>
+            <div className="books-list">
+              {relatedBooks.length > 0 ? (
+                <MultiItemSlider items={relatedBooks} itemType="book" />
+              ) : (
+                <p>Không có sách liên quan</p>
+              )}
+            </div>
           </div>
         </>
       )}
